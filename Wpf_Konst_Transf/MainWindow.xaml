@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button x:Name="StartScBut" Content="Manager/Scout" HorizontalAlignment="Left" Margin="82,200,0,0" VerticalAlignment="Top" Width="94"/>
+        <Label x:Name="Startphr1" Content="Hello! This is F.Search!" HorizontalAlignment="Left" Margin="158,34,0,0" VerticalAlignment="Top" Width="188" FontSize="18" Height="40"/>
+        <Label x:Name="StartQLabel" Content="Who you are?" HorizontalAlignment="Left" Margin="200,111,0,0" VerticalAlignment="Top" Width="114" Height="32" FontSize="16"/>
+        <Button x:Name="StartPlBut" Content="Player" HorizontalAlignment="Left" Margin="333,200,0,0" VerticalAlignment="Top" Width="90" Click="StartPlBut_Click"/>
+
     </Grid>
 </Window>
