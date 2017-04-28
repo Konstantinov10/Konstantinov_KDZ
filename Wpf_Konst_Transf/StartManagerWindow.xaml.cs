@@ -22,6 +22,55 @@ namespace Wpf_Konst_Transf
         public StartManagerWindow()
         {
             InitializeComponent();
+            textBoxMLog.GotFocus += TextBoxMLog_GotFocus;
+            textBoxMLog.LostFocus += TextBoxMLog_LostFocus;
+            textBoxMpassw.GotFocus += TextBoxMpassw_GotFocus;
+            textBoxMpassw.LostFocus += TextBoxMpassw_LostFocus;
+        }
+        bool _loginEntered = false;
+        bool _loginEntered2 = false;
+        private void TextBoxMLog_GotFocus(object sender, EventArgs e)
+        {
+            if (!_loginEntered)
+            {
+                textBoxMLog.Text = "";
+                textBoxMLog.Foreground = new SolidColorBrush(Colors.Black);
+            }
+        }
+            private void TextBoxMLog_LostFocus(object sender, EventArgs e)
+            {
+                if (!string.IsNullOrWhiteSpace(textBoxMLog.Text))
+                    _loginEntered = true;
+                else
+                {
+                    textBoxMLog.Text = "Login";
+                    _loginEntered = false;
+                    textBoxMLog.Foreground = new SolidColorBrush(Colors.Gray);
+                }
+            }
+            private void textBoxMLog_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        private void TextBoxMpassw_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (!_loginEntered2)
+            {
+                textBoxMpassw.Text = "";
+                textBoxMpassw.Foreground = new SolidColorBrush(Colors.Black);
+            }
+        }
+
+        private void TextBoxMpassw_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBoxMpassw.Text))
+                _loginEntered2 = true;
+            else
+            {
+                textBoxMpassw.Text = "Password";
+                _loginEntered2 = false;
+                textBoxMLog.Foreground = new SolidColorBrush(Colors.Gray);
+            }
         }
     }
 }

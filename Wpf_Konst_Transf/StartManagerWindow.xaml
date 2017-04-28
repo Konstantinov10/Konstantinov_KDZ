@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="StartManagerWindow" Height="300" Width="300">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="74*"/>
+            <RowDefinition Height="102*"/>
+            <RowDefinition Height="93*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="label" Content="We will help you to find the best player!" HorizontalAlignment="Left" Margin="29,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.3,-0.538" Width="227"/>
+        <TextBox x:Name="textBoxMLog" HorizontalAlignment="Left" Height="23" Margin="29,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="155" TextChanged="textBoxMLog_TextChanged"/>
+        <TextBox x:Name="textBoxMpassw" HorizontalAlignment="Left" Height="23" Margin="29,38,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="155" RenderTransformOrigin="0.517,1.601"/>
+        <Button x:Name="buttonMstart" Content="Log in" HorizontalAlignment="Left" Margin="29,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>

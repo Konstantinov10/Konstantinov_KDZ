@@ -80,5 +80,9 @@ namespace Wpf_Konst_Transf
 
         }
 
+        private void textBoxPLog_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
     } 
 }
