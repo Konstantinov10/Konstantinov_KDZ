@@ -31,5 +31,11 @@ namespace Wpf_Konst_Transf
             window.ShowDialog();
            
         }
+
+        private void StartScBut_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new StartManagerWindow();
+            window.ShowDialog();
+        }
     }
 }

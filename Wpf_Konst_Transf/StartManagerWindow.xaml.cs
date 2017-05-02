@@ -72,5 +72,11 @@ namespace Wpf_Konst_Transf
                 textBoxMLog.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
+
+        private void buttonMstart_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new SearchManagerWind();
+            window.ShowDialog();
+        }
     }
 }

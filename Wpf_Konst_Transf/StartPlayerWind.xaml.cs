@@ -84,5 +84,11 @@ namespace Wpf_Konst_Transf
         {
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var window = new RegPlayerWind();
+            window.ShowDialog();
+        }
     } 
 }

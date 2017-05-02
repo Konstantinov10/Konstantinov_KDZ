@@ -7,19 +7,25 @@
         mc:Ignorable="d"
         Title="StartPlayerWind" Height="300" Width="300">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="62*"/>
+            <RowDefinition Height="142*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1" />
             <ColumnDefinition />
             <ColumnDefinition Width="1"/>
         </Grid.ColumnDefinitions>
-       
 
 
-        <Label x:Name="PlayerStartLabel" Content="We will help you to find the new Team!" HorizontalAlignment="Center" Margin="35,10,37,233"   RenderTransformOrigin="0.45,-0.103" Grid.Column="1"/>
-        <Label x:Name="JoinPlabel" Content="Join your account:" HorizontalAlignment="Center"  Margin="95,36,94,207"   FontSize="11"   Grid.Column="1"  />
-        <TextBox x:Name="textBoxPLog" Foreground = "Gray" TextWrapping = "Wrap"    Margin="35,72,111,181"  Text="Login"  RenderTransformOrigin="0.475,-0.111" FontSize="9" Grid.Column="1" TextChanged="textBoxPLog_TextChanged_1"  />
-        <TextBox x:Name="textBoxPpassw"  Foreground = "Gray" TextWrapping = "Wrap"    Margin="35,93,111,160"  Text="Password"  RenderTransformOrigin="0.475,-0.111" FontSize="9" Grid.Column="1"  />
-        <Button x:Name="buttonPstart" Content="Log in"  Margin="35,134,160,115"     RenderTransformOrigin="-0.627,0.75"  FontSize="9" MaxHeight="55" MaxWidth="100" Grid.Column="1" ToolTip="Привет" />
-        
+
+        <Label x:Name="PlayerStartLabel" Content="We will help you to find the new Team!" HorizontalAlignment="Center" Margin="37,10,39,29"   RenderTransformOrigin="0.45,-0.103" Grid.Column="1"/>
+        <Label x:Name="JoinPlabel" Content="Join your account:" HorizontalAlignment="Center"  Margin="97,36,95,3"   FontSize="11"   Grid.Column="1"  />
+        <TextBox x:Name="textBoxPLog" Foreground = "Gray" TextWrapping = "Wrap"    Margin="35,7,111,38.689"  Text="Login"  RenderTransformOrigin="0.475,-0.111" FontSize="9" Grid.Column="1" TextChanged="textBoxPLog_TextChanged_1" Grid.Row="1"  />
+        <TextBox x:Name="textBoxPpassw"  Foreground = "Gray" TextWrapping = "Wrap"    Margin="35,28,111,17.689"  Text="Password"  RenderTransformOrigin="0.475,-0.111" FontSize="9" Grid.Column="1" Grid.Row="1"  />
+        <Button x:Name="buttonPstart" Content="Log in"  Margin="35,7.311,160,115"     RenderTransformOrigin="-0.627,0.75"  FontSize="9" MaxHeight="55" MaxWidth="100" Grid.Column="1" ToolTip="Привет" Grid.Row="2" />
+        <Button x:Name="RegButton" Content="Registration" Grid.Column="1" HorizontalAlignment="Left" Margin="176,7,0,0" Grid.Row="2" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.175,0.284" Click="Button_Click"/>
+
     </Grid>
 </Window>
