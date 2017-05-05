@@ -19,22 +19,26 @@ namespace Wpf_Konst_Transf
     /// </summary>
     public partial class SearchManagerWind : Window
     {
-        List<Player> _players = new List<Player>();
+        
         public SearchManagerWind()
         {
             InitializeComponent();
-            // Добавляем одного преподавателя по умолчанию
-            _players.Add(new Player("Ivan Ivanov", "Russia", 18, "Left", 34, "dicks"));
-            RefreshListBox();
+            Player.loadPlayersFrom();
+            foreach (string line in Player.getAsLines())
+            {
+                listBoxPlayers.Items.Add(line);
+            }
         }
 
-        private void RefreshListBox()
+       
+
+
+private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            listBoxPlayers.ItemsSource = null;
-            listBoxPlayers.ItemsSource = _players;
+
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
         {
 
         }

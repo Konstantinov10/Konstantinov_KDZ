@@ -22,16 +22,12 @@ namespace Wpf_Konst_Transf
         public RegPlayerWind()
         {
             InitializeComponent();
-        }
-        Player _newPlayer;
+           
 
-        public Player NewPLayer
-        {
-            get
-            {
-                return _newPlayer;
-            }
+            Player.writePlayersToFile();
+
         }
+
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -61,9 +57,18 @@ namespace Wpf_Konst_Transf
                 textBoxRating.Focus();
                 return;
             }
-            _newPlayer = new Player(textBoxFio.Text,comboBoxCountry.Text,age,comboBoxWleg.Text,rating,textBoxTeam.Text);
+            Player npl = new Player(textBoxname.Text, TextBoxsname.Text, TextBoxcountry.Text, Convert.ToInt32(textBoxAge.Text), comboBoxWleg.Text, Convert.ToInt32(textBoxRating.Text), textBoxTeam.Text);
+            Player.players.Add(npl);
+            Player.appendPlayerToFile(npl);
+          
             // Close current window
             DialogResult = true;
+          
+        }
+
+        private void comboBoxWleg_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

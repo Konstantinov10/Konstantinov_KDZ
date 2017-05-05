@@ -6,24 +6,25 @@
         xmlns:local="clr-namespace:Wpf_Konst_Transf"
         mc:Ignorable="d"
         Title="Player registration" Height="300" Width="300">
-    <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="Wrap" Text="Fullname" VerticalAlignment="Top" RenderTransformOrigin="0.316,-1.364"/>
+    <Grid RenderTransformOrigin="0.529,0.498">
+        <TextBlock HorizontalAlignment="Left" Margin="8,17,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" RenderTransformOrigin="0.316,-1.364"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,72,0,0" TextWrapping="Wrap" Text="Country" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,113,0,0" TextWrapping="Wrap" Text="Age" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,153,0,0" TextWrapping="Wrap" Text="w/leg" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,195,0,0" TextWrapping="Wrap" Text="Team" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,230,0,0" TextWrapping="Wrap" Text="Rating" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxFio" HorizontalAlignment="Left" Height="17" Margin="92,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
-        <ComboBox x:Name="comboBoxCountry" HorizontalAlignment="Left" Margin="92,72,0,0" VerticalAlignment="Top" Width="120" Height="16">
-            <ComboBoxItem Content="Angola&#xD;&#xA;Argentina&#xD;&#xA;Aruba&#xD;&#xA;Australia&#xD;&#xA;Austria&#xD;&#xA;Azerbaijan&#xD;&#xA;Bahamas&#xD;&#xA;Bahrain&#xD;&#xA;Belgium&#xD;&#xA;Benin&#xD;&#xA;Bolivia&#xD;&#xA;Bonaire&#xD;&#xA;Bosnia-Herzegovina&#xD;&#xA;Botswana&#xD;&#xA;Brazil&#xD;&#xA;Brunei&#xD;&#xA;Bulgaria&#xD;&#xA;Cambodia&#xD;&#xA;Cameroon&#xD;&#xA;Canada&#xD;&#xA;Chile&#xD;&#xA;China (Fuzhou)&#xD;&#xA;China (Shanghai)&#xD;&#xA;China (Zhongshan)&#xD;&#xA;Colombia&#xD;&#xA;Costa Rica&#xD;&#xA;Croatia&#xD;&#xA;Curacao&#xD;&#xA;Cyprus&#xD;&#xA;Czech Republic&#xD;&#xA;Democratic Republic of Congo&#xD;&#xA;Denmark&#xD;&#xA;East Africa&#xD;&#xA;Ecuador&#xD;&#xA;El Salvador&#xD;&#xA;El Salvador-San Miguel&#xD;&#xA;Estonia&#xD;&#xA;Fiji&#xD;&#xA;Finland&#xD;&#xA;France&#xD;&#xA;Gabon&#xD;&#xA;Germany&#xD;&#xA;Ghana&#xD;&#xA;Great Britain&#xD;&#xA;Greece&#xD;&#xA;Guadaloupe&#xD;&#xA;Guatemala&#xD;&#xA;Honduras&#xD;&#xA;Honduras-Tegucigalpa&#xD;&#xA;Hong Kong&#xD;&#xA;Hungary&#xD;&#xA;Iceland&#xD;&#xA;India&#xD;&#xA;Indonesia&#xD;&#xA;Ireland&#xD;&#xA;Israel&#xD;&#xA;Italy&#xD;&#xA;Ivory Coast&#xD;&#xA;Japan&#xD;&#xA;Kazakhstan&#xD;&#xA;Korea&#xD;&#xA;Kosovo&#xD;&#xA;Kuwait&#xD;&#xA;Latvia&#xD;&#xA;Lesotho&#xD;&#xA;Lithuania&#xD;&#xA;Luxembourg&#xD;&#xA;Macau&#xD;&#xA;Macedonia&#xD;&#xA;Malaysia&#xD;&#xA;Martinique&#xD;&#xA;Mauritania&#xD;&#xA;Mexico&#xD;&#xA;Moldova&#xD;&#xA;Namibia&#xD;&#xA;Netherlands&#xD;&#xA;New Zealand&#xD;&#xA;Nicaragua&#xD;&#xA;Nigeria&#xD;&#xA;Northern Ireland&#xD;&#xA;Norway&#xD;&#xA;Panama&#xD;&#xA;Paraguay&#xD;&#xA;Peru&#xD;&#xA;Philippines&#xD;&#xA;Poland&#xD;&#xA;Portugal&#xD;&#xA;Puerto Rico&#xD;&#xA;Qatar&#xD;&#xA;Republic of Congo&#xD;&#xA;Reunion Islands&#xD;&#xA;Romania&#xD;&#xA;Russia&#xD;&#xA;Rwanda&#xD;&#xA;Saba&#xD;&#xA;Samoa&#xD;&#xA;Saudi Arabia&#xD;&#xA;Senegal&#xD;&#xA;Serbia &amp; Montenegro&#xD;&#xA;Singapore&#xD;&#xA;Slovak Republic&#xD;&#xA;Slovenia&#xD;&#xA;South Africa&#xD;&#xA;Spain&#xD;&#xA;St. Eustatius&#xD;&#xA;St. Maarten&#xD;&#xA;Suriname&#xD;&#xA;Swaziland&#xD;&#xA;Sweden&#xD;&#xA;Switzerland&#xD;&#xA;Taiwan&#xD;&#xA;Tanzania&#xD;&#xA;Thailand&#xD;&#xA;Togo&#xD;&#xA;Turkey&#xD;&#xA;Uganda&#xD;&#xA;Ukraine&#xD;&#xA;United Arab Emirates&#xD;&#xA;United States&#xD;&#xA;Uruguay&#xD;&#xA;Venezuela&#xD;&#xA;Vietnam" HorizontalAlignment="Left" Width="118"/>
-        </ComboBox>
+        <TextBox x:Name="textBoxname" HorizontalAlignment="Left" Height="17" Margin="92,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
         <TextBox x:Name="textBoxAge" HorizontalAlignment="Left" Height="16" Margin="92,113,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="35"/>
-        <ComboBox x:Name="comboBoxWleg" HorizontalAlignment="Left" Margin="92,153,0,0" VerticalAlignment="Top" Width="82" Height="16">
-            <ComboBoxItem Content="Left&#xD;&#xA;Right" HorizontalAlignment="Left" Width="92"/>
+        <ComboBox x:Name="comboBoxWleg" HorizontalAlignment="Left" Margin="92,153,0,0" VerticalAlignment="Top" Width="82" Height="16" SelectionChanged="comboBoxWleg_SelectionChanged">
+            <ComboBoxItem Content="Left" HorizontalAlignment="Left" Width="82"/>
+            <ComboBoxItem Content="Right" HorizontalAlignment="Left" Width="82" Height="19"/>
         </ComboBox>
         <TextBox x:Name="textBoxTeam" HorizontalAlignment="Left" Height="16" Margin="92,195,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="176"/>
         <TextBox x:Name="textBoxRating" HorizontalAlignment="Left" Height="16" Margin="92,230,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="35"/>
         <Button Content="Registrate" HorizontalAlignment="Left" Margin="193,242,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <TextBox x:Name="TextBoxcountry" HorizontalAlignment="Left" Height="16" Margin="92,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="137"/>
+        <TextBlock HorizontalAlignment="Left" Margin="8,38,0,0" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top" Height="15" Width="56"/>
+        <TextBox x:Name="TextBoxsname" HorizontalAlignment="Left" Height="18" Margin="92,49,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="176"/>
 
     </Grid>
 </Window>

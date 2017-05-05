@@ -5,9 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_Konst_Transf"
         mc:Ignorable="d"
-        Title="SearchManagerWind" Height="300" Width="300">
+        Title="SearchManagerWind" Height="327.049" Width="619.672">
     <Grid>
-        <ListBox x:Name="listBoxPlayers" HorizontalAlignment="Left" Height="195" Margin="10,10,0,0" VerticalAlignment="Top" Width="272" SelectionChanged="ListBox_SelectionChanged"/>
+        <ListBox x:Name="listBoxPlayers" HorizontalAlignment="Left" Height="276" Margin="315,10,0,0" VerticalAlignment="Top" Width="287" SelectionChanged="ListBox_SelectionChanged"/>
+        <Label Content="Please,choose characteristics of the player" HorizontalAlignment="Left" Margin="38,10,0,0" VerticalAlignment="Top" Width="231" RenderTransformOrigin="0.5,0.5" Height="25">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.308"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBlock HorizontalAlignment="Left" Margin="10,43,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,75,0,0" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,108,0,0" TextWrapping="Wrap" Text="Country" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,145,0,0" TextWrapping="Wrap" Text="Age" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,183,0,0" TextWrapping="Wrap" Text="W/leg" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,216,0,0" TextWrapping="Wrap" Text="Rating" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,252,0,0" TextWrapping="Wrap" Text="Team" VerticalAlignment="Top"/>
+        <Button x:Name="ButtonSearch" Content="Search" HorizontalAlignment="Left" Margin="240,266,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="17" Margin="118,42,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="126"/>
+        <TextBox HorizontalAlignment="Left" Height="16" Margin="118,75,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="16" Margin="118,108,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <Label Content="From" HorizontalAlignment="Left" Margin="78,145,0,0" VerticalAlignment="Top" Height="28" Width="41"/>
+        <Label Content="To" HorizontalAlignment="Left" Margin="183,143,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="118,149,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="60"/>
+        <TextBox HorizontalAlignment="Left" Height="25" Margin="222,149,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="52"/>
+        <ComboBox HorizontalAlignment="Left" Margin="118,183,0,0" VerticalAlignment="Top" Width="87" RenderTransformOrigin="0.471,0.122" Height="16">
+            <ComboBoxItem Content="Left" HorizontalAlignment="Left" Width="92" Selected="ComboBoxItem_Selected"/>
+            <ComboBoxItem Content="Right" HorizontalAlignment="Left" Width="92"/>
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" Height="17" Margin="118,215,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="17" Margin="118,251,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
