@@ -28,7 +28,7 @@ namespace Wpf_Konst_Transf
 
         }
 
-
+       
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -67,6 +67,11 @@ namespace Wpf_Konst_Transf
         }
 
         private void comboBoxWleg_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBoxsname_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

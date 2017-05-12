@@ -24,7 +24,7 @@
         <Button Content="Registrate" HorizontalAlignment="Left" Margin="193,242,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
         <TextBox x:Name="TextBoxcountry" HorizontalAlignment="Left" Height="16" Margin="92,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="137"/>
         <TextBlock HorizontalAlignment="Left" Margin="8,38,0,0" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top" Height="15" Width="56"/>
-        <TextBox x:Name="TextBoxsname" HorizontalAlignment="Left" Height="18" Margin="92,49,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="176"/>
+        <TextBox x:Name="TextBoxsname" HorizontalAlignment="Left" Height="18" Margin="92,49,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="176" TextChanged="TextBoxsname_TextChanged"/>
 
     </Grid>
 </Window>

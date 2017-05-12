@@ -74,7 +74,7 @@ namespace Wpf_Konst_Transf
         }
         public static void loadPlayersFrom()
         {
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\ikons\Documents\Visual Studio 2015\Projects\Wpf_Konst_Transf\Player.txt", Encoding.UTF8);
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\Player.txt", Encoding.UTF8);
 
             players = new List<Player>();
             foreach (string line in lines)
@@ -82,11 +82,15 @@ namespace Wpf_Konst_Transf
                 Char delimiter = ' ';
                 String[] substrings = line.Split(delimiter);
                 Player npl = new Player(substrings[0], substrings[1], substrings[2], Convert.ToInt32(substrings[3]), substrings[4], Convert.ToInt32(substrings[5]), substrings[6]);
+               
                 players.Add(npl);
             }
-        }
 
-        public string asLine()
+            
+        }
+      
+
+    public string asLine()
         {
             string line = null;
             line += _name;
@@ -112,12 +116,12 @@ namespace Wpf_Konst_Transf
 
         public static void writePlayersToFile()
         {
-            System.IO.File.WriteAllLines(@"C:\Users\ikons\Documents\Visual Studio 2015\Projects\Wpf_Konst_Transf\Player.txt", Player.getAsLines(), Encoding.UTF8);
+            System.IO.File.WriteAllLines(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\Player.txt", Player.getAsLines(), Encoding.UTF8);
         }
 
         public static void appendPlayerToFile(Player plr)
         {
-            System.IO.File.AppendAllText(@"C:\Users\ikons\Documents\Visual Studio 2015\Projects\Wpf_Konst_Transf\PLayer.txt", plr.asLine() + "\n", Encoding.UTF8);
+            System.IO.File.AppendAllText(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\PLayer.txt", plr.asLine() + "\n", Encoding.UTF8);
         }
 
     }
