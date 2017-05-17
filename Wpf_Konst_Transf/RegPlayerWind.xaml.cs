@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Wpf_Konst_Transf
@@ -19,17 +20,21 @@ namespace Wpf_Konst_Transf
     /// </summary>
     public partial class RegPlayerWind : Window
     {
+       
         public RegPlayerWind()
         {
             InitializeComponent();
-           
+
+
+            frameMain.Navigate(new PageRegPlayer());
+          
 
             Player.writePlayersToFile();
-
+           
         }
+        
 
        
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int rating, age;
@@ -60,10 +65,13 @@ namespace Wpf_Konst_Transf
             Player npl = new Player(textBoxname.Text, TextBoxsname.Text, TextBoxcountry.Text, Convert.ToInt32(textBoxAge.Text), comboBoxWleg.Text, Convert.ToInt32(textBoxRating.Text), textBoxTeam.Text);
             Player.players.Add(npl);
             Player.appendPlayerToFile(npl);
-          
-            // Close current window
-            DialogResult = true;
-          
+            
+        
+
+        
+        // Close current window
+        DialogResult = true;
+        
         }
 
         private void comboBoxWleg_SelectionChanged(object sender, SelectionChangedEventArgs e)

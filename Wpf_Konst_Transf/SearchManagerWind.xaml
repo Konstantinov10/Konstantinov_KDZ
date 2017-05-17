@@ -24,21 +24,17 @@
         <TextBlock HorizontalAlignment="Left" Margin="10,145,0,0" TextWrapping="Wrap" Text="Age" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,183,0,0" TextWrapping="Wrap" Text="W/leg" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,216,0,0" TextWrapping="Wrap" Text="Rating" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,252,0,0" TextWrapping="Wrap" Text="Team" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,256,0,0" TextWrapping="Wrap" Text="Team" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBoxSname" HorizontalAlignment="Left" Height="17" Margin="118,42,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="126" TextChanged="TextBoxSname_TextChanged"/>
         <TextBox x:Name="TextBoxSsurname" HorizontalAlignment="Left" Height="16" Margin="118,75,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" TextChanged="TextBoxSsurname_TextChanged"/>
         <TextBox x:Name="TextBoxScountry" HorizontalAlignment="Left" Height="16" Margin="118,108,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" TextChanged="TextBoxScountry_TextChanged"/>
-        <Label Content="From" HorizontalAlignment="Left" Margin="78,145,0,0" VerticalAlignment="Top" Height="28" Width="41"/>
-        <Label Content="To" HorizontalAlignment="Left" Margin="183,143,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxS1age" HorizontalAlignment="Left" Height="25" Margin="118,149,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="60" TextChanged="TextBoxS1age_TextChanged"/>
-        <TextBox x:Name="TextBoxS2age" HorizontalAlignment="Left" Height="25" Margin="222,149,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="52"/>
-        <ComboBox x:Name="ComboBoxSwleg" HorizontalAlignment="Left" Margin="118,183,0,0" VerticalAlignment="Top" Width="87" RenderTransformOrigin="0.471,0.122" Height="16">
-            <ComboBoxItem Content="Left" HorizontalAlignment="Left" Width="92" Selected="ComboBoxItem_Selected"/>
-            <ComboBoxItem Content="Right" HorizontalAlignment="Left" Width="92"/>
+        <TextBox x:Name="TextBoxS1age" HorizontalAlignment="Left" Height="20" Margin="118,149,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="59" TextChanged="TextBoxS1age_TextChanged"/>
+        <ComboBox x:Name="ComboBoxSwleg" HorizontalAlignment="Left" Margin="118,183,0,0" VerticalAlignment="Top" Width="87" RenderTransformOrigin="0.471,0.122" Height="28" SelectionChanged="ComboBoxSwleg_SelectionChanged">
+            <ComboBoxItem x:Name="LItem" Content="Left" HorizontalAlignment="Left" Width="92" Selected="ComboBoxItem_Selected"/>
+            <ComboBoxItem x:Name="RItem" Content="Right" HorizontalAlignment="Left" Width="92"/>
         </ComboBox>
-        <TextBox x:Name="TextBoxS1rating" HorizontalAlignment="Left" Height="17" Margin="118,215,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="60"/>
-        <TextBox x:Name="TextBoxSteam" HorizontalAlignment="Left" Height="17" Margin="118,251,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="TextBoxS2rating" HorizontalAlignment="Left" Height="17" Margin="222,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52"/>
+        <TextBox x:Name="TextBoxSteam" HorizontalAlignment="Left" Height="17" Margin="118,256,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" TextChanged="TextBoxSteam_TextChanged"/>
+        <TextBox x:Name="textBoxRat"   HorizontalAlignment="Left" Height="24" Margin="118,216,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="39" TextChanged="textBoxValR_TextChanged"/>
 
     </Grid>
 </Window>

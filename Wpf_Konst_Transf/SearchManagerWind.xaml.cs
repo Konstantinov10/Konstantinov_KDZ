@@ -129,40 +129,95 @@ namespace Wpf_Konst_Transf
 
         private void TextBoxS1age_TextChanged(object sender, TextChangedEventArgs e)
         {
+
             listBoxPlayers.Items.Clear();
 
             Player.loadPlayersFrom();
             foreach (string line in Player.getAsLines())
-            { 
+            {
 
                 String[] word = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-                int a = Convert.ToInt32(word[3]);
-                if (TextBoxS1age.Text != " ")
+                if (word[3] == TextBoxS1age.Text)
                 {
-                    int b = Convert.ToInt32(TextBoxS1age.Text);
+
+                    listBoxPlayers.Items.Add(line);
                 }
-                else
+                else if (string.IsNullOrWhiteSpace(TextBoxScountry.Text) & string.IsNullOrWhiteSpace(TextBoxSname.Text) & string.IsNullOrWhiteSpace(TextBoxSsurname.Text)& string.IsNullOrWhiteSpace(TextBoxS1age.Text))
                 {
-                   string b =  Convert.ToString(TextBoxS1age.Text);
+                    listBoxPlayers.Items.Add(line);
                 }
 
-                    if (TextBoxS1age.Text != " " & a >= b)
-                    {
-                        Convert.ToString(TextBoxS1age.Text);
-                        listBoxPlayers.Items.Add(line);
 
-                    }
-                    else
+            }
 
-               if (string.IsNullOrWhiteSpace(TextBoxScountry.Text) & string.IsNullOrWhiteSpace(TextBoxSname.Text) & string.IsNullOrWhiteSpace(TextBoxSsurname.Text) & string.IsNullOrWhiteSpace(TextBoxS1age.Text))
-                    {
-                        listBoxPlayers.Items.Add(line);
-                    }
+
+        }
+
+        private void ComboBoxSwleg_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            listBoxPlayers.Items.Clear();
+
+            Player.loadPlayersFrom();
+            foreach (string line in Player.getAsLines())
+            {
+
+                String[] word = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                if (word[4] != ComboBoxSwleg.Text  )
+                {
+
+                    listBoxPlayers.Items.Add(line);
                 }
-               
+                else if (string.IsNullOrWhiteSpace(TextBoxScountry.Text) & string.IsNullOrWhiteSpace(TextBoxSname.Text) & string.IsNullOrWhiteSpace(TextBoxSsurname.Text) & string.IsNullOrWhiteSpace(TextBoxS1age.Text) & string.IsNullOrWhiteSpace(ComboBoxSwleg.Text))
+                {
+                    listBoxPlayers.Items.Add(line);
+                }
 
 
+            }
+        }
+
+        private void textBoxValR_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            listBoxPlayers.Items.Clear();
+
+            Player.loadPlayersFrom();
+            foreach (string line in Player.getAsLines())
+            {
+
+                String[] word = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                if (word[5] == textBoxRat.Text)
+                {
+
+                    listBoxPlayers.Items.Add(line);
+                }
+                else if (string.IsNullOrWhiteSpace(TextBoxScountry.Text) & string.IsNullOrWhiteSpace(TextBoxSname.Text) & string.IsNullOrWhiteSpace(TextBoxSsurname.Text) & string.IsNullOrWhiteSpace(TextBoxS1age.Text) & string.IsNullOrWhiteSpace(textBoxRat.Text))
+                {
+                    listBoxPlayers.Items.Add(line);
+                }
+
+
+            }
+        }
+
+        private void TextBoxSteam_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            listBoxPlayers.Items.Clear();
+
+            Player.loadPlayersFrom();
+            foreach (string line in Player.getAsLines())
+            {
+
+                String[] word = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                if (word[6] == TextBoxSteam.Text)
+                {
+
+                    listBoxPlayers.Items.Add(line);
+                }
+                else if (string.IsNullOrWhiteSpace(TextBoxScountry.Text) & string.IsNullOrWhiteSpace(TextBoxSname.Text) & string.IsNullOrWhiteSpace(TextBoxSsurname.Text) & string.IsNullOrWhiteSpace(TextBoxS1age.Text) & string.IsNullOrWhiteSpace(textBoxRat.Text) & string.IsNullOrWhiteSpace(TextBoxSteam.Text))
+                {
+                    listBoxPlayers.Items.Add(line);
+                }
+            }
             }
         }
     }

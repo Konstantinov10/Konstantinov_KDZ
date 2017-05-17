@@ -90,5 +90,11 @@ namespace Wpf_Konst_Transf
             var window = new RegPlayerWind();
             window.ShowDialog();
         }
+
+        private void buttonPstart_Click(object sender, RoutedEventArgs e)
+        {
+          
+            
+        }
     } 
 }
