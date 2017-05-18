@@ -26,7 +26,7 @@ namespace Wpf_Konst_Transf
             InitializeComponent();
 
 
-            frameMain.Navigate(new PageRegPlayer());
+          
           
 
             Player.writePlayersToFile();
@@ -71,7 +71,9 @@ namespace Wpf_Konst_Transf
         
         // Close current window
         DialogResult = true;
-        
+            var window = new LP_Player();
+            window.ShowDialog();
+
         }
 
         private void comboBoxWleg_SelectionChanged(object sender, SelectionChangedEventArgs e)

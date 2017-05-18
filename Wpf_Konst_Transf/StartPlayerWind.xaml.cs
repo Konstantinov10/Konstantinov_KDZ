@@ -25,7 +25,9 @@ namespace Wpf_Konst_Transf
             textBoxPLog.GotFocus += TextBoxPLog_GotFocus;
             textBoxPLog.LostFocus += TextBoxPLog_LostFocus;
             textBoxPpassw.GotFocus += TextBoxPpassw_GotFocus;
-            textBoxPpassw.LostFocus+=TextBoxPpassw_LostFocus;
+            textBoxPpassw.LostFocus += TextBoxPpassw_LostFocus;
+            Player.loadPlayersFrom();
+
         }
         bool _loginEntered = false;
         bool _loginEntered2 = false;
@@ -93,8 +95,22 @@ namespace Wpf_Konst_Transf
 
         private void buttonPstart_Click(object sender, RoutedEventArgs e)
         {
-          
-            
-        }
-    } 
+            Log_Pas.loadLPPFrom();
+            foreach (string line in Log_Pas.getLPAsLines())
+            {
+
+                String[] word = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                if (word[0] == textBoxPLog.Text & word[1] == textBoxPpassw.Text)
+                {
+
+                    var window = new PlayerAcc();
+                    window.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("INcorrect Login or Password!");
+                }
+
+            }
+        } }
 }

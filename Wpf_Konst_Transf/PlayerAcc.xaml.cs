@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Wpf_Konst_Transf
 {
     /// <summary>
-    /// Логика взаимодействия для PageRegPlayer.xaml
+    /// Логика взаимодействия для PlayerAcc.xaml
     /// </summary>
-    public partial class PageRegPlayer : Page
+    public partial class PlayerAcc : Window
     {
-        public PageRegPlayer()
+        public PlayerAcc()
         {
             InitializeComponent();
         }

@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Wpf_Konst_Transf
 {
-    [Serializable]
-    class Log_Pas
+   public class Log_Pas
     {
         private string _login;
 
@@ -27,42 +23,63 @@ namespace Wpf_Konst_Transf
             get { return _password; }
             set { _password = value; }
         }
-        public Log_Pas(string login, string password)
+
+       public static List<Log_Pas>  lppl ;
+        public Log_Pas( string login, string password)
         {
             _login = login;
             _password = password;
 
         }
-        public static List<Log_Pas> listLP;
-       public static BinaryFormatter formatter = new BinaryFormatter();
 
-        public static void LoadData()
+        public static void loadLPPFrom()
         {
-           
+            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\LPP.txt", Encoding.UTF8);
 
-            using (FileStream fs = new FileStream(@"C: /Users/Иван/Desktop/Wpf_Konst_Transf / base.dat", FileMode.OpenOrCreate))
+            lppl = new List<Log_Pas>();
+            foreach (string line in lines)
             {
-                try
-                {
-                    listLP = (List<Log_Pas>)formatter.Deserialize(fs);
-                }
-                catch
-                {
-                    listLP = new List<Log_Pas>();
-                }
+                Char delimiter = ' ';
+                String[] substrings = line.Split(delimiter);
+                Log_Pas Acc = new Log_Pas(substrings[0], substrings[1]);
+
+                lppl.Add(Acc);
             }
+
+
         }
 
-        public static void SaveData()
+
+        public string Log_PasasLine()
         {
-            using (FileStream fs = new FileStream(@"C: /Users/Иван/Desktop/Wpf_Konst_Transf / base.dat", FileMode.Open))
-            {
-                formatter.Serialize(fs, listLP);
-            }
+            string line = null;
+            line += _login;
+            line += " " + _password;
+            return line;
         }
+
+        public static string[] getLPAsLines()
+        {
+            string[] lines = new string[lppl.Count];
+            int id = 0;
+            foreach (Log_Pas acc in lppl)
+            {
+                lines[id++] = acc.Log_PasasLine();
+            }
+            return lines;
+        }
+
+        public static void writeLPToFile()
+        {
+            System.IO.File.WriteAllLines(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\LPP.txt", Log_Pas.getLPAsLines(), Encoding.UTF8);
+        }
+
+
+
+        public static void appendLPPlayerToFile(Log_Pas LP)
+        {
+            System.IO.File.AppendAllText(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\LPP.txt", LP.Log_PasasLine() + "\n", Encoding.UTF8);
+        }
+
     }
-}  
-   
-       
-    
-
+}
