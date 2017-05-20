@@ -219,7 +219,15 @@ namespace Wpf_Konst_Transf
                 }
             }
             }
+
+        private void buttonLink_Click(object sender, RoutedEventArgs e)
+        {
+            if (listBoxPlayers.SelectedIndex != -1)
+            {
+                
+            }
         }
+    }
     }
 
 

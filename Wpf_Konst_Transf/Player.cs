@@ -59,8 +59,10 @@ namespace Wpf_Konst_Transf
             get { return _team; }
             set { _team = value; }
         }
-
+       
+       
         public static List<Player> players;
+       
 
         public Player(string name, string surname, string country, int age, string wleg, int rating, string team)
         {
@@ -103,6 +105,9 @@ namespace Wpf_Konst_Transf
             return line;
         }
 
+      
+        
+
         public static string[] getAsLines()
         {
             string[] lines = new string[players.Count];
@@ -117,13 +122,16 @@ namespace Wpf_Konst_Transf
         public static void writePlayersToFile()
         {
             System.IO.File.WriteAllLines(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\Player.txt", Player.getAsLines(), Encoding.UTF8);
+            System.IO.File.WriteAllLines(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\LPP.txt", Player.getAsLines(), Encoding.UTF8);
         }
 
         public static void appendPlayerToFile(Player plr)
         {
             System.IO.File.AppendAllText(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\PLayer.txt", plr.asLine() + "\n", Encoding.UTF8);
+            System.IO.File.AppendAllText(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\LPP.txt", plr.asLine() + "\n", Encoding.UTF8);
         }
-
+        
+       
     }
 
     }

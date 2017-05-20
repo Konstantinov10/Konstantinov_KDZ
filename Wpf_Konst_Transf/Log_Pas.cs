@@ -53,6 +53,7 @@ namespace Wpf_Konst_Transf
         public string Log_PasasLine()
         {
             string line = null;
+
             line += _login;
             line += " " + _password;
             return line;
@@ -80,6 +81,7 @@ namespace Wpf_Konst_Transf
         {
             System.IO.File.AppendAllText(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\LPP.txt", LP.Log_PasasLine() + "\n", Encoding.UTF8);
         }
+        
 
     }
 }

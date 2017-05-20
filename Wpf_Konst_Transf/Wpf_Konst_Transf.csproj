@@ -71,13 +71,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Log_Pas.cs" />
-    <Compile Include="LP_Player.xaml.cs">
-      <DependentUpon>LP_Player.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Player.cs" />
-    <Compile Include="PlayerAcc.xaml.cs">
-      <DependentUpon>PlayerAcc.xaml</DependentUpon>
-    </Compile>
     <Compile Include="RegPlayerWind.xaml.cs">
       <DependentUpon>RegPlayerWind.xaml</DependentUpon>
     </Compile>
@@ -90,10 +84,6 @@
     <Compile Include="StartPlayerWind.xaml.cs">
       <DependentUpon>StartPlayerWind.xaml</DependentUpon>
     </Compile>
-    <Page Include="LP_Player.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -106,10 +96,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PlayerAcc.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="RegPlayerWind.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
