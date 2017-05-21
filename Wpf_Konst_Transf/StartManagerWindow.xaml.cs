@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,6 +21,8 @@ namespace Wpf_Konst_Transf
     /// </summary>
     public partial class StartManagerWindow : Window
     {
+       
+        
         public StartManagerWindow()
         {
             InitializeComponent();
@@ -27,6 +31,40 @@ namespace Wpf_Konst_Transf
             textBoxMpassw.GotFocus += TextBoxMpassw_GotFocus;
             textBoxMpassw.LostFocus += TextBoxMpassw_LostFocus;
         }
+       // const string FileName = "password.txt";
+       // List<Log_Pas> log_pas = new List<Log_Pas>();
+
+       // private void SaveData1()
+       // {
+           // BinaryFormatter formatter1 = new BinaryFormatter();
+           // using (FileStream fs1 = new FileStream("../../log_pas_manager.dat", FileMode.OpenOrCreate))
+           // {
+           //     formatter1.Serialize(fs1, log_pas);
+           // }
+       // }
+
+      //  private void LoadData1()
+      //  {
+       //     BinaryFormatter formatter1 = new BinaryFormatter();
+        //    using (FileStream fs1 = new FileStream("../../log_pas_manager.dat", FileMode.OpenOrCreate))
+        //    {
+          //      try
+           //     {
+          //          log_pas = (List<Log_Pas>)formatter1.Deserialize(fs1);
+          //      }
+          //      catch
+           //     {
+           //         log_pas = new List<Log_Pas>();
+           //     }
+          //  }
+     //   }
+     //   private void RefreshWindow()
+      //  {
+      //      textBoxMLog.Text = "";
+      //      textBoxMpassw.Text = "";
+      //  }
+
+
         bool _loginEntered = false;
         bool _loginEntered2 = false;
         private void TextBoxMLog_GotFocus(object sender, EventArgs e)
@@ -48,10 +86,7 @@ namespace Wpf_Konst_Transf
                     textBoxMLog.Foreground = new SolidColorBrush(Colors.Gray);
                 }
             }
-            private void textBoxMLog_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+          
         private void TextBoxMpassw_GotFocus(object sender, RoutedEventArgs e)
         {
             if (!_loginEntered2)
@@ -77,6 +112,76 @@ namespace Wpf_Konst_Transf
         {
             var window = new SearchManagerWind();
             window.ShowDialog();
+            /*LoadData1();
+
+            if (textBoxMLog.Text != "" && textBoxMpassw.Text != "")
+            {
+                foreach (Log_Pas lp in log_pas)
+                {
+
+                    if (textBoxMLog.Text == lp.Login && textBoxMpassw.Text == lp.Password)
+                    {
+                        var window = new SearchManagerWind();
+                        window.ShowDialog();
+
+                    }
+                    else if (textBoxMLog.Text != lp.Login && textBoxMpassw.Text != lp.Password)
+                    {
+                        MessageBox.Show("Incorrect Login or Password!");
+                        RefreshWindow();
+                        return;
+                    }
+                }
+            }
+            else if (textBoxMLog.Text == "" || textBoxMpassw.Text == "")
+            {
+                MessageBox.Show("If you've registrated, please,write your Login and Password for Log In!");
+                RefreshWindow();
+                return;
+            }*/
+
+
+        }
+
+        private void buttonRegMgr_Click(object sender, RoutedEventArgs e)
+        {
+            /*LoadData1();
+            if (textBoxMLog.Text == "Login" || textBoxMpassw.Text == "Password")
+            {
+                MessageBox.Show("For registration please write your Login and Password!");
+                return;
+            }
+            else if (textBoxMLog.Text != "" && textBoxMpassw.Text != "")
+            {
+               
+                foreach (Log_Pas lp in log_pas)
+                {
+                    if (textBoxMLog.Text != lp.Login && textBoxMpassw.Text != lp.Password)
+                    {
+
+                       Log_Pas manager = new Log_Pas(textBoxMLog.Text, textBoxMpassw.Text);
+                        log_pas.Add(manager);
+                        RefreshWindow();
+                        MessageBox.Show("Registration passed successfully!");
+                        SaveData1();
+                        return;
+                        
+                    }
+                    
+                }
+            }
+            else if (textBoxMLog.Text != "" && textBoxMpassw.Text != "")
+            {
+                foreach (Log_Pas lp in log_pas)
+                {
+                    if (textBoxMLog.Text == lp.Login)
+                    {
+                        RefreshWindow();
+                        MessageBox.Show("This Login is busy!");
+                        return;
+                    }
+                }
+            }*/
         }
     }
 }

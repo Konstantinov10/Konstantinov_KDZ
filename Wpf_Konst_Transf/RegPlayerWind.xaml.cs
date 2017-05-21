@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,22 +22,40 @@ namespace Wpf_Konst_Transf
     /// </summary>
     public partial class RegPlayerWind : Window
     {
-       
         public RegPlayerWind()
         {
             InitializeComponent();
-
-
-          
-          
-
-            Player.writePlayersToFile();
-           
         }
-        
 
+        List<Player> players = new List<Player>();
+
+        private void LoadData()
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream fs = new FileStream("../../player.dat", FileMode.OpenOrCreate))
+            {
+                try
+                {
+                    players = (List<Player>)formatter.Deserialize(fs);
+                }
+                catch
+                {
+                    players = new List<Player>();
+                }
+            }
+        }
+
+              private void SaveData()
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream fs = new FileStream("../../player.dat", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, players);
+            }
+
+        }
        
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void buttonRegP_Click(object sender, RoutedEventArgs e)
         {
             int rating, age;
             if (!int.TryParse(textBoxRating.Text, out rating))
@@ -62,26 +82,26 @@ namespace Wpf_Konst_Transf
                 textBoxRating.Focus();
                 return;
             }
-            Player npl = new Player(textBoxname.Text, TextBoxsname.Text, TextBoxcountry.Text, Convert.ToInt32(textBoxAge.Text), comboBoxWleg.Text, Convert.ToInt32(textBoxRating.Text), textBoxTeam.Text);
-            Player.players.Add(npl);
-            Player.appendPlayerToFile(npl);
-            
-        
+           Player plr = new Player(textBoxName.Text,
+                  TextBoxSname.Text,
+                 textBoxCountry.Text,
+                 int.Parse(textBoxAge.Text),
+                 comboBoxWleg.Text,
+                  int.Parse(textBoxRating.Text),
+                  textBoxTeam.Text);
+            players.Add(plr);
+            SaveData();
 
-        
-        // Close current window
-        DialogResult = true;
+          
+            // Close current window
+            DialogResult = true;
          
         }
 
-        private void comboBoxWleg_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void buttonPlrChange_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void TextBoxsname_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            var window = new PlayerChangeWindow();
+            window.ShowDialog();
         }
     }
 }

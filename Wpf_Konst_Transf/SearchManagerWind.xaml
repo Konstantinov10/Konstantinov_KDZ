@@ -7,19 +7,23 @@
         mc:Ignorable="d"
         Title="Search" Height="327.049" Width="619.672">
     <Grid>
-        <ListBox x:Name="listBoxPlayers" HorizontalAlignment="Left" Height="210" Margin="274,10,0,0" VerticalAlignment="Top"   Width="328" SelectionChanged="ListBox_SelectionChanged"/>
-        <TextBox x:Name="TextBoxSname" HorizontalAlignment="Left" Height="18" Margin="81,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159" TextChanged="TextBoxSname_TextChanged"/>
-        <TextBox x:Name="TextBoxSsurname" HorizontalAlignment="Left" Height="18" Margin="81,42,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159" TextChanged="TextBoxSsurname_TextChanged"/>
-        <TextBox x:Name="TextBoxScountry" HorizontalAlignment="Left" Height="18" Margin="81,75,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159" TextChanged="TextBoxScountry_TextChanged"/>
-        <TextBox x:Name="TextBoxS1age" HorizontalAlignment="Left" Height="18" Margin="81,105,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="37" TextChanged="TextBoxS1age_TextChanged"/>
-        <ComboBox x:Name="ComboBoxSwleg" HorizontalAlignment="Left" Margin="81,136,0,0" VerticalAlignment="Top"   Width="58" RenderTransformOrigin="0.471,0.122" Height="18" SelectionChanged="ComboBoxSwleg_SelectionChanged">
-            <ComboBoxItem x:Name="LItem" Content="Left" HorizontalAlignment="Left" Width="92" Selected="ComboBoxItem_Selected"/>
+        <TextBox x:Name="TextBoxSname" HorizontalAlignment="Left" Height="18" Margin="81,10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159" />
+        <TextBox x:Name="TextBoxSsurname" HorizontalAlignment="Left" Height="18" Margin="81,42,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159" />
+        <TextBox x:Name="TextBoxScountry" HorizontalAlignment="Left" Height="18" Margin="81,75,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159" />
+        <TextBox x:Name="TextBoxS1age" HorizontalAlignment="Left" Height="18" Margin="81,105,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="37" />
+        <ComboBox x:Name="ComboBoxSwleg" HorizontalAlignment="Left" Margin="81,136,0,0" VerticalAlignment="Top"   Width="58" RenderTransformOrigin="0.471,0.122" Height="18" >
+            <ComboBoxItem x:Name="LItem" Content="Left" HorizontalAlignment="Left" Width="92" />
             <ComboBoxItem x:Name="RItem" Content="Right" HorizontalAlignment="Left" Width="92"/>
         </ComboBox>
-        <TextBox x:Name="TextBoxSteam" HorizontalAlignment="Left" Height="18" Margin="81,202,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159" TextChanged="TextBoxSteam_TextChanged"/>
-        <TextBox x:Name="textBoxRat"   HorizontalAlignment="Left" Height="18" Margin="81,168,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="37" TextChanged="textBoxValR_TextChanged"/>
-        <Button x:Name="buttonLink" Content="Link" HorizontalAlignment="Left" Margin="274,225,0,0" VerticalAlignment="Top" Width="63" Click="buttonLink_Click" Height="19"/>
+        <TextBox x:Name="TextBoxSteam" HorizontalAlignment="Left" Height="18" Margin="81,202,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="159" />
+        <TextBox x:Name="textBoxRat"   HorizontalAlignment="Left" Height="18" Margin="81,168,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="37" />
+        <Button x:Name="buttonLink" Content="Link" HorizontalAlignment="Left" Margin="539,236,0,0" VerticalAlignment="Top" Width="63" Click="buttonLink_Click" Height="19"/>
         <Label x:Name="label" Content="Name" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Height="25" Width="43" FontFamily="Verdana" FontSize="10" RenderTransformOrigin="0.514,-0.069"/>
+        <DataGrid x:Name="dataGridPlayers" HorizontalAlignment="Left" Margin="274,10,0,0" VerticalAlignment="Top" Height="210" Width="328" />
+        <Button x:Name="buttonAddAll" Content="Add All" HorizontalAlignment="Left" Margin="274,236,0,0" VerticalAlignment="Top" Width="75" Click="buttonAddAll_Click"/>
+        <Button x:Name="buttonDel" Content="Delete" HorizontalAlignment="Left" Margin="354,236,0,0" VerticalAlignment="Top" Width="75" Click="buttonDel_Click" />
+        <Button x:Name="buttonSearch" Content="Search" HorizontalAlignment="Left" Margin="434,236,0,0" VerticalAlignment="Top" Width="75" Click="buttonSearch_Click"/>
+        <Button x:Name="buttonClear" Content="Clear" HorizontalAlignment="Left" Margin="274,261,0,0" VerticalAlignment="Top" Width="75" Click="buttonClear_Click"/>
 
     </Grid>
 </Window>

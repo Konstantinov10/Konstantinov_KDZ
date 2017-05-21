@@ -72,6 +72,9 @@
     </ApplicationDefinition>
     <Compile Include="Log_Pas.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerChangeWindow.xaml.cs">
+      <DependentUpon>PlayerChangeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegPlayerWind.xaml.cs">
       <DependentUpon>RegPlayerWind.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PlayerChangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegPlayerWind.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

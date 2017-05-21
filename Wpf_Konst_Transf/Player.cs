@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Wpf_Konst_Transf
 {
+    [Serializable]
     public class Player
     {
         private string _name;
@@ -59,10 +62,22 @@ namespace Wpf_Konst_Transf
             get { return _team; }
             set { _team = value; }
         }
-       
-       
-        public static List<Player> players;
-       
+
+        public string PlayerasLine()
+        {
+            string line = null;
+
+            line += _name;
+            line += " " + _surname;
+            line += " " + _country;
+            line += " " + _age;
+            line += " " + _wleg;
+            line += " " + _rating;
+            line += " " + _team;
+            return line;
+        }
+
+
 
         public Player(string name, string surname, string country, int age, string wleg, int rating, string team)
         {
@@ -74,65 +89,10 @@ namespace Wpf_Konst_Transf
             _rating = rating;
             _team = team;
         }
-        public static void loadPlayersFrom()
-        {
-            string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\Player.txt", Encoding.UTF8);
-
-            players = new List<Player>();
-            foreach (string line in lines)
-            {
-                Char delimiter = ' ';
-                String[] substrings = line.Split(delimiter);
-                Player npl = new Player(substrings[0], substrings[1], substrings[2], Convert.ToInt32(substrings[3]), substrings[4], Convert.ToInt32(substrings[5]), substrings[6]);
-               
-                players.Add(npl);
-            }
+      
 
             
         }
-      
-
-    public string asLine()
-        {
-            string line = null;
-            line += _name;
-            line += " " + _surname;
-            line += " " + _country;
-            line += " " + _age;
-            line += " " + _wleg;
-            line += " " + _rating;
-            line += " " + _team;
-            return line;
-        }
-
-      
-        
-
-        public static string[] getAsLines()
-        {
-            string[] lines = new string[players.Count];
-            int id = 0;
-            foreach (Player player in players)
-            {
-                lines[id++] = player.asLine();
-            }
-            return lines;
-        }
-
-        public static void writePlayersToFile()
-        {
-            System.IO.File.WriteAllLines(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\Player.txt", Player.getAsLines(), Encoding.UTF8);
-            System.IO.File.WriteAllLines(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\LPP.txt", Player.getAsLines(), Encoding.UTF8);
-        }
-
-        public static void appendPlayerToFile(Player plr)
-        {
-            System.IO.File.AppendAllText(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\PLayer.txt", plr.asLine() + "\n", Encoding.UTF8);
-            System.IO.File.AppendAllText(@"C:\Users\Иван\Desktop\Wpf_Konst_Transf\LPP.txt", plr.asLine() + "\n", Encoding.UTF8);
-        }
-        
-       
-    }
 
     }
 

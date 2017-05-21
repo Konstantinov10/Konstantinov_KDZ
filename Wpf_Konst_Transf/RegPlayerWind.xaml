@@ -7,24 +7,25 @@
         mc:Ignorable="d"
         Title="Player registration" Height="300" Width="300">
     <Grid RenderTransformOrigin="0.529,0.498">
-        <TextBlock HorizontalAlignment="Left" Margin="8,17,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" RenderTransformOrigin="0.316,-1.364"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,72,0,0" TextWrapping="Wrap" Text="Country" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,113,0,0" TextWrapping="Wrap" Text="Age" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,153,0,0" TextWrapping="Wrap" Text="w/leg" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,195,0,0" TextWrapping="Wrap" Text="Team" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,230,0,0" TextWrapping="Wrap" Text="Rating" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxname" HorizontalAlignment="Left" Height="17" Margin="92,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
-        <TextBox x:Name="textBoxAge" HorizontalAlignment="Left" Height="16" Margin="92,113,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="35"/>
-        <ComboBox x:Name="comboBoxWleg" HorizontalAlignment="Left" Margin="92,153,0,0" VerticalAlignment="Top" Width="82" Height="16" SelectionChanged="comboBoxWleg_SelectionChanged">
+        <TextBox x:Name="textBoxName" HorizontalAlignment="Left" Height="17" Margin="68,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176"/>
+        <TextBox x:Name="textBoxAge" HorizontalAlignment="Left" Height="16" Margin="68,102,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="35"/>
+        <ComboBox x:Name="comboBoxWleg" HorizontalAlignment="Left" Margin="68,131,0,0" VerticalAlignment="Top" Width="82" Height="16" >
             <ComboBoxItem Content="Left" HorizontalAlignment="Left" Width="82"/>
             <ComboBoxItem Content="Right" HorizontalAlignment="Left" Width="82" Height="19"/>
         </ComboBox>
-        <TextBox x:Name="textBoxTeam" HorizontalAlignment="Left" Height="16" Margin="92,195,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="176"/>
-        <TextBox x:Name="textBoxRating" HorizontalAlignment="Left" Height="16" Margin="92,230,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="35"/>
-        <Button Content="Registrate" HorizontalAlignment="Left" Margin="193,242,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <TextBox x:Name="TextBoxcountry" HorizontalAlignment="Left" Height="16" Margin="92,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="137"/>
-        <TextBlock HorizontalAlignment="Left" Margin="8,38,0,0" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top" Height="15" Width="56"/>
-        <TextBox x:Name="TextBoxsname" HorizontalAlignment="Left" Height="18" Margin="92,49,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="176" TextChanged="TextBoxsname_TextChanged"/>
-       
+        <TextBox x:Name="textBoxTeam" HorizontalAlignment="Left" Height="18" Margin="68,160,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="176"/>
+        <TextBox x:Name="textBoxRating" HorizontalAlignment="Left" Height="16" Margin="68,191,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="35"/>
+        <Button  x:Name="buttonRegP" Content="Registrate" HorizontalAlignment="Left" Margin="193,242,0,0" VerticalAlignment="Top" Width="75" Click="buttonRegP_Click" />
+        <TextBox x:Name="textBoxCountry" HorizontalAlignment="Left" Height="16" Margin="68,74,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="137"/>
+        <TextBox x:Name="TextBoxSname" HorizontalAlignment="Left" Height="18" Margin="68,44,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="176" />
+        <Button x:Name="buttonPlrChange" Content="Change" HorizontalAlignment="Left" Margin="28,242,0,0" VerticalAlignment="Top" Width="75" Click="buttonPlrChange_Click"/>
+        <Label x:Name="label" Content="Name" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Height="25" Width="42" RenderTransformOrigin="0.567,-0.548" FontSize="10"/>
+        <Label x:Name="label1" Content="Surname" HorizontalAlignment="Left" Margin="6,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.065,0.5" FontSize="10"/>
+        <Label x:Name="label2" Content="Country" HorizontalAlignment="Left" Margin="6,64,0,0" VerticalAlignment="Top" FontSize="10"/>
+        <Label x:Name="label3" Content="Age" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" FontSize="10"/>
+        <Label x:Name="label4" Content="W-ing Leg" HorizontalAlignment="Left" Margin="0,126,0,0" VerticalAlignment="Top" FontSize="10"/>
+        <Label x:Name="label5" Content="Team" HorizontalAlignment="Left" Margin="6,154,0,0" VerticalAlignment="Top" FontSize="10"/>
+        <Label x:Name="label6" Content="Rating" HorizontalAlignment="Left" Margin="6,182,0,0" VerticalAlignment="Top" FontSize="10"/>
+
     </Grid>
 </Window>

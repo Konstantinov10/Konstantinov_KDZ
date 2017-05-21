@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,213 +21,202 @@ namespace Wpf_Konst_Transf
     /// </summary>
     public partial class SearchManagerWind : Window
     {
-      
-        
+        List<Player> _players = new List<Player>();
+        private void LoadData()
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream fs = new FileStream("../../player.dat", FileMode.OpenOrCreate))
+            {
+                try
+                {
+                    _players = (List<Player>)formatter.Deserialize(fs);
+                }
+                catch
+                {
+                    _players = new List<Player>();
+                }
+            }
+        }
 
         public SearchManagerWind()
         {
-           
+
             InitializeComponent();
-            Player.loadPlayersFrom();
            
-            foreach (string line in Player.getAsLines())
-            {
-                    listBoxPlayers.Items.Add(line);
-                
-            }
         }
-
-        private void RefreshListBox()
+        private void RefreshdataGridPlr()
         {
-            listBoxPlayers.ItemsSource = null;
-            listBoxPlayers.ItemsSource = Player.players;
+            dataGridPlayers.ItemsSource = null;
+            dataGridPlayers.ItemsSource = _players;
         }
 
-      
-        
 
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
 
-        private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
-        {
 
-        }
+
+
+
+
        
-      
+    
 
-        private void TextBoxSname_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            listBoxPlayers.Items.Clear();
-
-            Player.loadPlayersFrom();
-            foreach (string line in Player.getAsLines())
-            {
-               
-                String[] word = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (word[0] == TextBoxSname.Text )
-                {
-                   
-                    listBoxPlayers.Items.Add(line);
-                }
-                else if (string.IsNullOrWhiteSpace(TextBoxSname.Text))
-                {
-                    listBoxPlayers.Items.Add(line);
-                }
-                
-
-          }
-            
-        }
-
-        private void TextBoxSsurname_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            listBoxPlayers.Items.Clear();
-
-            Player.loadPlayersFrom();
-            foreach (string line in Player.getAsLines())
-            {
-
-                String[] word = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (word[1] == TextBoxSsurname.Text)
-                {
-
-                    listBoxPlayers.Items.Add(line);
-                }
-                else if (string.IsNullOrWhiteSpace(TextBoxSsurname.Text)& string.IsNullOrWhiteSpace(TextBoxSname.Text))
-                {
-                    listBoxPlayers.Items.Add(line);
-                }
-
-
-            }
-        }
-
-        private void TextBoxScountry_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            listBoxPlayers.Items.Clear();
-
-            Player.loadPlayersFrom();
-            foreach (string line in Player.getAsLines())
-            {
-
-                String[] word = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (word[2] == TextBoxScountry.Text)
-                {
-
-                    listBoxPlayers.Items.Add(line);
-                }
-                else if (string.IsNullOrWhiteSpace(TextBoxScountry.Text) & string.IsNullOrWhiteSpace(TextBoxSname.Text) & string.IsNullOrWhiteSpace(TextBoxSsurname.Text))
-                {
-                    listBoxPlayers.Items.Add(line);
-                }
-
-
-            }
-        }
-
-        private void TextBoxS1age_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-            listBoxPlayers.Items.Clear();
-
-            Player.loadPlayersFrom();
-            foreach (string line in Player.getAsLines())
-            {
-
-                String[] word = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (word[3] == TextBoxS1age.Text)
-                {
-
-                    listBoxPlayers.Items.Add(line);
-                }
-                else if (string.IsNullOrWhiteSpace(TextBoxScountry.Text) & string.IsNullOrWhiteSpace(TextBoxSname.Text) & string.IsNullOrWhiteSpace(TextBoxSsurname.Text)& string.IsNullOrWhiteSpace(TextBoxS1age.Text))
-                {
-                    listBoxPlayers.Items.Add(line);
-                }
-
-
-            }
-
-
-        }
-
-        private void ComboBoxSwleg_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            listBoxPlayers.Items.Clear();
-
-            Player.loadPlayersFrom();
-            foreach (string line in Player.getAsLines())
-            {
-
-                String[] word = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (word[4] != ComboBoxSwleg.Text  )
-                {
-
-                    listBoxPlayers.Items.Add(line);
-                }
-                else if (string.IsNullOrWhiteSpace(TextBoxScountry.Text) & string.IsNullOrWhiteSpace(TextBoxSname.Text) & string.IsNullOrWhiteSpace(TextBoxSsurname.Text) & string.IsNullOrWhiteSpace(TextBoxS1age.Text) & string.IsNullOrWhiteSpace(ComboBoxSwleg.Text))
-                {
-                    listBoxPlayers.Items.Add(line);
-                }
-
-
-            }
-        }
-
-        private void textBoxValR_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            listBoxPlayers.Items.Clear();
-
-            Player.loadPlayersFrom();
-            foreach (string line in Player.getAsLines())
-            {
-
-                String[] word = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (word[5] == textBoxRat.Text)
-                {
-
-                    listBoxPlayers.Items.Add(line);
-                }
-                else if (string.IsNullOrWhiteSpace(TextBoxScountry.Text) & string.IsNullOrWhiteSpace(TextBoxSname.Text) & string.IsNullOrWhiteSpace(TextBoxSsurname.Text) & string.IsNullOrWhiteSpace(TextBoxS1age.Text) & string.IsNullOrWhiteSpace(textBoxRat.Text))
-                {
-                    listBoxPlayers.Items.Add(line);
-                }
-
-
-            }
-        }
-
-        private void TextBoxSteam_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            listBoxPlayers.Items.Clear();
-
-            Player.loadPlayersFrom();
-            foreach (string line in Player.getAsLines())
-            {
-
-                String[] word = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-                if (word[6] == TextBoxSteam.Text)
-                {
-
-                    listBoxPlayers.Items.Add(line);
-                }
-                else if (string.IsNullOrWhiteSpace(TextBoxScountry.Text) & string.IsNullOrWhiteSpace(TextBoxSname.Text) & string.IsNullOrWhiteSpace(TextBoxSsurname.Text) & string.IsNullOrWhiteSpace(TextBoxS1age.Text) & string.IsNullOrWhiteSpace(textBoxRat.Text) & string.IsNullOrWhiteSpace(TextBoxSteam.Text))
-                {
-                    listBoxPlayers.Items.Add(line);
-                }
-            }
-            }
+       
 
         private void buttonLink_Click(object sender, RoutedEventArgs e)
         {
-            if (listBoxPlayers.SelectedIndex != -1)
+            if (dataGridPlayers.SelectedIndex != -1)
             {
-                
+                MessageBox.Show("You've made an offer to this player!");
             }
+        }
+
+
+
+        private void buttonAddAll_Click(object sender, RoutedEventArgs e)
+        {
+            LoadData();
+            dataGridPlayers.ItemsSource = _players;
+        }
+
+
+
+        private void buttonDel_Click(object sender, RoutedEventArgs e)
+        {
+           if(dataGridPlayers.SelectedIndex != -1)
+            {
+                _players.RemoveAt(dataGridPlayers.SelectedIndex);
+                RefreshdataGridPlr();
+            }
+        }
+
+
+
+       
+
+
+        private void buttonClear_Click(object sender, RoutedEventArgs e)
+        {
+           
+            dataGridPlayers.ItemsSource = null;
+        }
+
+        private void buttonSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
+            {
+                List<Player> plrs = new List<Player>();
+                LoadData();
+                foreach (var plr in _players)
+                {
+                    if (plr.Name == (TextBoxSname.Text))
+                    {
+                        plrs.Add(plr);
+                        dataGridPlayers.ItemsSource = plrs;
+
+                    }
+                }
+
+            }
+
+
+            if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
+            {
+                List<Player> plrs = new List<Player>();
+                LoadData();
+                foreach (var plr in _players)
+                {
+                    if (plr.Surname == (TextBoxSsurname.Text))
+                    {
+                        plrs.Add(plr);
+                        dataGridPlayers.ItemsSource = plrs;
+                    }
+                }
+
+            }
+
+
+
+            if (TextBoxSname.Text == "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
+            {
+                List<Player> plrs = new List<Player>();
+                LoadData();
+                foreach (var plr in _players)
+                {
+                    if (plr.Country == (TextBoxScountry.Text))
+                    {
+                        plrs.Add(plr);
+                        dataGridPlayers.ItemsSource = plrs;
+                    }
+                }
+
+            }
+
+
+
+            if (TextBoxSname.Text == "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
+            {
+                List<Player> plrs = new List<Player>();
+                LoadData();
+                foreach (var plr in _players)
+                {
+                    if (plr.Age == Convert.ToInt32(TextBoxS1age.Text))
+                    {
+                        plrs.Add(plr);
+                        dataGridPlayers.ItemsSource = plrs;
+                    }
+                }
+
+            }
+
+            if (TextBoxSname.Text == "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
+            {
+                List<Player> plrs = new List<Player>();
+                LoadData();
+                foreach (var plr in _players)
+                {
+                    if (plr.Wleg == (ComboBoxSwleg.Text))
+                    {
+                        plrs.Add(plr);
+                        dataGridPlayers.ItemsSource = plrs;
+                    }
+                }
+
+            }
+
+
+            if (TextBoxSname.Text == "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
+            {
+                List<Player> plrs = new List<Player>();
+                LoadData();
+                foreach (var plr in _players)
+                {
+                    if (plr.Team == (TextBoxSteam.Text))
+                    {
+                        plrs.Add(plr);
+                        dataGridPlayers.ItemsSource = plrs;
+                    }
+                }
+
+            }
+
+            if (TextBoxSname.Text == "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
+            {
+                List<Player> plrs = new List<Player>();
+                LoadData();
+                foreach (var plr in _players)
+                {
+                    if (plr.Rating == Convert.ToInt32(textBoxRat.Text))
+                    {
+                        plrs.Add(plr);
+                        dataGridPlayers.ItemsSource = plrs;
+                    }
+                }
+
+            }
+
         }
     }
     }
