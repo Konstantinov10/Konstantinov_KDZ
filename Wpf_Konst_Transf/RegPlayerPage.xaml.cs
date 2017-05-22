@@ -18,16 +18,16 @@ using System.Windows.Shapes;
 namespace Wpf_Konst_Transf
 {
     /// <summary>
-    /// Логика взаимодействия для RegPlayerWind.xaml
+    /// Логика взаимодействия для RegPlayerPage.xaml
     /// </summary>
-    public partial class RegPlayerWind : Window
+    public partial class RegPlayerPage : Page
     {
-        public RegPlayerWind()
+        public RegPlayerPage()
         {
             InitializeComponent();
         }
 
-        List<Player> players = new List<Player>();
+        List<Player> _players;
 
         private void LoadData()
         {
@@ -36,25 +36,25 @@ namespace Wpf_Konst_Transf
             {
                 try
                 {
-                    players = (List<Player>)formatter.Deserialize(fs);
+                    _players = (List<Player>)formatter.Deserialize(fs);
                 }
                 catch
                 {
-                    players = new List<Player>();
+                    _players = new List<Player>();
                 }
             }
         }
 
-              private void SaveData()
+        private void SaveData()
         {
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream("../../player.dat", FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fs, players);
+                formatter.Serialize(fs, _players);
             }
 
         }
-       
+
         private void buttonRegP_Click(object sender, RoutedEventArgs e)
         {
             int rating, age;
@@ -82,26 +82,25 @@ namespace Wpf_Konst_Transf
                 textBoxRating.Focus();
                 return;
             }
-           Player plr = new Player(textBoxName.Text,
-                  TextBoxSname.Text,
-                 textBoxCountry.Text,
-                 int.Parse(textBoxAge.Text),
-                 comboBoxWleg.Text,
-                  int.Parse(textBoxRating.Text),
-                  textBoxTeam.Text);
-            players.Add(plr);
+            Player plr = new Player(textBoxName.Text,
+                   TextBoxSname.Text,
+                  textBoxCountry.Text,
+                  int.Parse(textBoxAge.Text),
+                  comboBoxWleg.Text,
+                   int.Parse(textBoxRating.Text),
+                   textBoxTeam.Text);
+            _players.Add(plr);
             SaveData();
+            MessageBox.Show("Registration passed successfully!");
 
-          
-            // Close current window
-            DialogResult = true;
-         
+            
+           
+
         }
 
         private void buttonPlrChange_Click(object sender, RoutedEventArgs e)
         {
-            var window = new PlayerChangeWindow();
-            window.ShowDialog();
+            NavigationService.Navigate(Pages.PlayerChangePage);
         }
     }
 }

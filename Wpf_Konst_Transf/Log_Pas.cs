@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wpf_Konst_Transf
 {
-    //[Serializable]
+    [Serializable]
    public class Log_Pas
     {
         private string _login;

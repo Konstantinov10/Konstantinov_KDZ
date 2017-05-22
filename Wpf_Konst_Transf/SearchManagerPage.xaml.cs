@@ -12,16 +12,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Wpf_Konst_Transf
 {
     /// <summary>
-    /// Логика взаимодействия для SearchManagerWind.xaml
+    /// Логика взаимодействия для SearchManagerPage.xaml
     /// </summary>
-    public partial class SearchManagerWind : Window
+    public partial class SearchManagerPage : Page
     {
-        List<Player> _players = new List<Player>();
+        List<Player> _players;
         private void LoadData()
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -35,40 +36,25 @@ namespace Wpf_Konst_Transf
                 {
                     _players = new List<Player>();
                 }
-            }
-        }
-
-        public SearchManagerWind()
+            }   }
+        public SearchManagerPage()
         {
-
             InitializeComponent();
-           
         }
-        private void RefreshdataGridPlr()
+
+         private void RefreshdataGridPlr()
         {
             dataGridPlayers.ItemsSource = null;
             dataGridPlayers.ItemsSource = _players;
         }
 
 
-
-
-
-
-
-
-
-
-       
-    
-
-       
-
         private void buttonLink_Click(object sender, RoutedEventArgs e)
         {
             if (dataGridPlayers.SelectedIndex != -1)
             {
-                MessageBox.Show("You've made an offer to this player!");
+
+                MessageBox.Show("Offer is successfull!");
             }
         }
 
@@ -219,8 +205,4 @@ namespace Wpf_Konst_Transf
 
         }
     }
-    }
-
-
-
-   
+}

@@ -12,21 +12,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Wpf_Konst_Transf
 {
     /// <summary>
-    /// Логика взаимодействия для PlayerChangeWindow.xaml
+    /// Логика взаимодействия для PlayerChangePage.xaml
     /// </summary>
-    public partial class PlayerChangeWindow : Window
+    public partial class PlayerChangePage : Page
     {
-        public PlayerChangeWindow()
+        public PlayerChangePage()
         {
             InitializeComponent();
+            LoadData();
         }
 
-        List<Player> _players = new List<Player>();
 
         private void LoadData()
         {
@@ -53,29 +54,33 @@ namespace Wpf_Konst_Transf
             }
 
         }
-
+        List<Player> _players;
+        List<Player> playr = new List<Player>();
         private void buttonSaveChange_Click(object sender, RoutedEventArgs e)
         {
+
+
             SaveData();
-            DialogResult = true;
+
         }
 
-        private void textBoxPlrChange_TextChanged(object sender, TextChangedEventArgs e)
+
+
+
+
+        private void ButtonShow_Click(object sender, RoutedEventArgs e)
         {
-            LoadData();
-            for (int i = 0; i < _players.Count; i++)
+            foreach (var p in _players)
             {
-                if (textBoxPlrChange.Text == _players[i].Name)
+                if (textBoxPlrChange.Text == p.Name)
                 {
                     List<Player> players = new List<Player>();
-                    players.Add(_players[i]);
+                    players.Add(p);
                     dataGridPlayers.ItemsSource = players;
-                    textBoxPlrChange.Text = "";
+
                     return;
                 }
-
             }
-           
         }
     }
 }

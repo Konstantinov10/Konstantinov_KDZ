@@ -71,51 +71,58 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Log_Pas.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PlayerChangeWindow.xaml.cs">
-      <DependentUpon>PlayerChangeWindow.xaml</DependentUpon>
+    <Compile Include="PlayerChangePage.xaml.cs">
+      <DependentUpon>PlayerChangePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RegPlayerWind.xaml.cs">
-      <DependentUpon>RegPlayerWind.xaml</DependentUpon>
+    <Compile Include="RegPlayerPage.xaml.cs">
+      <DependentUpon>RegPlayerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SearchManagerWind.xaml.cs">
-      <DependentUpon>SearchManagerWind.xaml</DependentUpon>
+    <Compile Include="SearchManagerPage.xaml.cs">
+      <DependentUpon>SearchManagerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StartManagerWindow.xaml.cs">
-      <DependentUpon>StartManagerWindow.xaml</DependentUpon>
+    <Compile Include="StartManagerPage.xaml.cs">
+      <DependentUpon>StartManagerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StartPlayerWind.xaml.cs">
-      <DependentUpon>StartPlayerWind.xaml</DependentUpon>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Compile Include="StartPlayerPage.xaml.cs">
+      <DependentUpon>StartPlayerPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="PlayerChangeWindow.xaml">
+    <Page Include="PlayerChangePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RegPlayerWind.xaml">
+    <Page Include="RegPlayerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SearchManagerWind.xaml">
+    <Page Include="SearchManagerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StartManagerWindow.xaml">
+    <Page Include="StartManagerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StartPlayerWind.xaml">
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartPlayerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

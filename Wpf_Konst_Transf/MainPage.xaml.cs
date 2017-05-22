@@ -10,19 +10,31 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Wpf_Konst_Transf
 {
     /// <summary>
-    /// Логика взаимодействия для StartNavWindow.xaml
+    /// Логика взаимодействия для MainPage.xaml
     /// </summary>
-    public partial class StartNavWindow : Window
+    public partial class MainPage : Page
     {
-        public StartNavWindow()
+        public MainPage()
         {
             InitializeComponent();
-            frameMain.Navigate(new MainPage());
+        }
+
+
+        private void StartPlBut_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(Pages.StartPlayerPage);
+
+        }
+
+        private void StartScBut_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(Pages.StartManagerPage);
         }
     }
 }

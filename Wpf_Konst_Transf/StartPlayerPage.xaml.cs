@@ -12,26 +12,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Wpf_Konst_Transf
 {
     /// <summary>
-    /// Логика взаимодействия для StartPlayerWind.xaml
+    /// Логика взаимодействия для StartPlayerPage.xaml
     /// </summary>
-    public partial class StartPlayerWind : Window
+    public partial class StartPlayerPage : Page
     {
-        public StartPlayerWind()
+        public StartPlayerPage()
         {
             InitializeComponent();
             textBoxPLog.GotFocus += TextBoxPLog_GotFocus;
             textBoxPLog.LostFocus += TextBoxPLog_LostFocus;
             textBoxPpassw.GotFocus += TextBoxPpassw_GotFocus;
             textBoxPpassw.LostFocus += TextBoxPpassw_LostFocus;
-
-
         }
-       /* List<Log_Pas> log_pas = new List<Log_Pas>();
+        List<Log_Pas> log_pas = new List<Log_Pas>();
+
+
 
         private void SaveData2()
         {
@@ -44,6 +45,7 @@ namespace Wpf_Konst_Transf
 
         private void LoadData2()
         {
+
             BinaryFormatter formatter1 = new BinaryFormatter();
             using (FileStream fs1 = new FileStream("../../log_pas_player.dat", FileMode.OpenOrCreate))
             {
@@ -61,7 +63,7 @@ namespace Wpf_Konst_Transf
         {
             textBoxPLog.Text = "";
             textBoxPpassw.Text = "";
-        }*/
+        }
 
 
         bool _loginEntered = false;
@@ -86,10 +88,7 @@ namespace Wpf_Konst_Transf
             }
         }
 
-        private void textBoxPLog_TextChanged(object sender, TextChangedEventArgs e)
-        {
 
-        }
 
         private void TextBoxPpassw_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -119,78 +118,90 @@ namespace Wpf_Konst_Transf
 
         private void buttonReg_Click(object sender, RoutedEventArgs e)
         {
-           /* LoadData2();
+            LoadData2();
+
             if (textBoxPLog.Text == "Login" || textBoxPpassw.Text == "Password")
             {
                 MessageBox.Show("For registration please write your Login and Password!");
                 return;
             }
-            else if (textBoxPLog.Text != "" && textBoxPpassw.Text != "")
+            else
+            {
+                if (textBoxPLog.Text != "" && textBoxPpassw.Text != "")
+                {
+
+                    foreach (Log_Pas lp in log_pas)
+                    {
+                        if (textBoxPLog.Text != lp.Login && textBoxPpassw.Text != lp.Password)
+                        {
+
+                            Log_Pas pl = new Log_Pas(textBoxPLog.Text, textBoxPpassw.Text);
+                            log_pas.Add(pl);
+                            RefreshWindow();
+                            MessageBox.Show("Registration passed successfully!");
+                            SaveData2();
+                            return;
+
+                        }
+
+                    }
+                }
+                else
+                {
+                    if (textBoxPLog.Text != "" && textBoxPpassw.Text != "")
+                    {
+                        foreach (Log_Pas lp in log_pas)
+                        {
+                            if (textBoxPLog.Text == lp.Login)
+                            {
+                                RefreshWindow();
+                                MessageBox.Show("This Login is busy!");
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void buttonPstart_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            LoadData2();
+            List<Log_Pas> l = new List<Log_Pas>();
+
+            if (textBoxPLog.Text != "" && textBoxPpassw.Text != "")
             {
 
                 foreach (Log_Pas lp in log_pas)
                 {
-                    if (textBoxPLog.Text != lp.Login && textBoxPpassw.Text != lp.Password)
-                    {
 
-                        Log_Pas player = new Log_Pas(textBoxPLog.Text, textBoxPpassw.Text);
-                        log_pas.Add(player);
-                        RefreshWindow();
-                        MessageBox.Show("Registration passed successfully!");
-                        SaveData2();
+                    if (textBoxPLog.Text == lp.Login && textBoxPpassw.Text == lp.Password)
+                    {
+                        NavigationService.Navigate(Pages.RegPLayerPage);
+                        l.Add(lp);
                         return;
 
                     }
 
                 }
             }
-            else if (textBoxPLog.Text != "" && textBoxPpassw.Text != "")
+            else if (textBoxPLog.Text == "" || textBoxPpassw.Text == "")
             {
-                foreach (Log_Pas lp in log_pas)
-                {
-                    if (textBoxPLog.Text == lp.Login)
-                    {
-                        RefreshWindow();
-                        MessageBox.Show("This Login is busy!");
-                        return;
-                    }
-                }
-            }*/
-        }
-
-        private void buttonPstart_Click(object sender, RoutedEventArgs e)
-        {
-            var window = new RegPlayerWind();
-            window.ShowDialog();
-            /* LoadData2();
-
-             if (textBoxPLog.Text != "" && textBoxPpassw.Text != "")
-             {
-                 foreach (Log_Pas lp in log_pas)
-                 {
-
-                     if (textBoxPLog.Text == lp.Login && textBoxPpassw.Text == lp.Password)
-                     {
-                         var window = new RegPlayerWind();
-                         window.ShowDialog();
-                     }
-                     else if (textBoxPLog.Text != lp.Login && textBoxPpassw.Text != lp.Password)
-                     {
-                         MessageBox.Show("Incorrect Login or Password!");
-                         RefreshWindow();
-                         return;
-                     }
-                 }
-             }
-             else if (textBoxPLog.Text == "" || textBoxPpassw.Text == "")
-             {
-                 MessageBox.Show("If you've registrated, please,write your Login and Password for Log In!");
-                 RefreshWindow();
-                 return;
-             }
+                MessageBox.Show("If you've registrated, please,write your Login and Password for Log In!");
+                RefreshWindow();
+                return;
+            }
+            else if (l.Count == 0)
+            {
+                MessageBox.Show("If you've registrated, please,write your Login and Password for Log In!");
+                RefreshWindow();
+                return;
+            }
 
 
-         }*/
         }
     }
+
 }
