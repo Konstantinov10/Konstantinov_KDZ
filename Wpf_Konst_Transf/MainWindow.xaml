@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="F.Search" Height="500" Width="700">
     <Grid>
-        <Frame Name="frameMain" NavigationUIVisibility="Hidden">
+        <Frame Name="frameMain" >
 
         </Frame>
 

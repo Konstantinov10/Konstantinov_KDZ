@@ -147,7 +147,7 @@ namespace Wpf_Konst_Transf
         {
             LoadData1();
 
-            if (textBoxMLog.Text == "Login" || textBoxMpassw.Text == "Password")
+            if ((textBoxMLog.Text == "Login" || textBoxMpassw.Text == "Password")|| (textBoxMLog.Text == "" || textBoxMpassw.Text == ""))
             {
                 MessageBox.Show("For registration please write your Login and Password!");
                 return;
@@ -156,40 +156,35 @@ namespace Wpf_Konst_Transf
             {
                 if (textBoxMLog.Text != "" && textBoxMpassw.Text != "")
                 {
-
+                   
                     foreach (Log_Pas lp in log_pas)
                     {
-                        if (textBoxMLog.Text != lp.Login && textBoxMpassw.Text != lp.Password)
+                        
+                        if (textBoxMLog.Text == lp.Login)
                         {
-
-                            Log_Pas manager = new Log_Pas(textBoxMLog.Text, textBoxMpassw.Text);
-                            log_pas.Add(manager);
-                            RefreshWindow();
-                            MessageBox.Show("Registration passed successfully!");
-                            SaveData1();
-                            return;
-
-                        }
-
-                    }
-                }
-                else
-                {
-                    if (textBoxMLog.Text != "" && textBoxMpassw.Text != "")
-                    {
-                        foreach (Log_Pas lp in log_pas)
-                        {
-                            if (textBoxMLog.Text == lp.Login)
+                           
+                            MessageBox.Show("This Login is busy!");
+                            return; }
+                        else {
+                            if (textBoxMLog.Text != lp.Login && textBoxMpassw.Text != lp.Password)
                             {
+
+                                Log_Pas manager = new Log_Pas(textBoxMLog.Text, textBoxMpassw.Text);
+                                log_pas.Add(manager);
                                 RefreshWindow();
-                                MessageBox.Show("This Login is busy!");
+                                MessageBox.Show("Registration passed successfully!");
+                                SaveData1();
                                 return;
+
                             }
+
                         }
+                }
+              
                     }
                 }
             }
         }
     }
-}
+
 
