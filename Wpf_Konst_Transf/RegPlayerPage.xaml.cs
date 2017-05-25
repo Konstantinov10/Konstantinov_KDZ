@@ -55,51 +55,79 @@ namespace Wpf_Konst_Transf
 
         }
 
+        private void RefreshWindow()
+        {
+            textBoxName.Text = "";
+            TextBoxSname.Text = "";
+            textBoxCountry.Text = "";
+            textBoxAge.Text = "";
+            comboBoxWleg.Text = "";
+            textBoxTeam.Text = "";
+            textBoxRating.Text = "";
+        }
+
         private void buttonRegP_Click(object sender, RoutedEventArgs e)
         {
-            int rating, age;
-            if (!int.TryParse(textBoxRating.Text, out rating))
+            if (textBoxName.Text == "" || TextBoxSname.Text == "" || textBoxCountry.Text == "" || textBoxAge.Text == "" || comboBoxWleg.Text == "" || textBoxTeam.Text == "" || textBoxRating.Text == "")
             {
-                MessageBox.Show("Некорректное значение рейтинга");
-                textBoxRating.Focus();
-                return;
+                MessageBox.Show("Please, write all parameters for registration!");
             }
-            if (rating < 20 || rating > 99)
-            {
-                MessageBox.Show("Рейтинг должен быть от 20 до 99 включительно");
-                textBoxRating.Focus();
-                return;
-            }
-            if (!int.TryParse(textBoxAge.Text, out age))
-            {
-                MessageBox.Show("Некорректное значение возраста");
-                textBoxRating.Focus();
-                return;
-            }
-            if (age < 16 || age > 50)
-            {
-                MessageBox.Show("возраст должен быть от 16 до 50 включительно");
-                textBoxRating.Focus();
-                return;
-            }
-            Player plr = new Player(textBoxName.Text,
-                   TextBoxSname.Text,
-                  textBoxCountry.Text,
-                  int.Parse(textBoxAge.Text),
-                  comboBoxWleg.Text,
-                   int.Parse(textBoxRating.Text),
-                   textBoxTeam.Text);
-            _players.Add(plr);
-            SaveData();
-            MessageBox.Show("Registration passed successfully!");
+            int rating;
+            if (textBoxRating.Text != "")
 
-            
+            {
+
+                if (!int.TryParse(textBoxRating.Text, out rating))
+                {
+                    MessageBox.Show("Incorrect rating!");
+                    textBoxRating.Focus();
+                    return;
+                }
+
+
+                if (rating < 20 || rating > 99)
+                {
+                    MessageBox.Show("Rating must be from 20 to 99!");
+                    textBoxRating.Focus();
+                    return;
+                }
+            }
+            int age;
+            if (textBoxAge.Text != "")
+            {
+                if (!int.TryParse(textBoxAge.Text, out age))
+                {
+                    MessageBox.Show("Incorrect age!");
+                    textBoxRating.Focus();
+                    return;
+                }
+                if (age < 16 || age > 50)
+                {
+                    MessageBox.Show("Age must be from 16 to 50!");
+                    textBoxRating.Focus();
+                    return;
+                }
+            }
+            if(textBoxName.Text!="" && TextBoxSname.Text!="" && textBoxCountry.Text != "" && textBoxAge.Text != "" && comboBoxWleg.Text != "" && textBoxTeam.Text != "" && textBoxRating.Text != "") { 
+                Player plr = new Player(textBoxName.Text,
+                       TextBoxSname.Text,
+                      textBoxCountry.Text,
+                      int.Parse(textBoxAge.Text),
+                      comboBoxWleg.Text,
+                       int.Parse(textBoxRating.Text),
+                       textBoxTeam.Text);
+                _players.Add(plr);
+                SaveData();
+                MessageBox.Show("Registration passed successfully!");
+                RefreshWindow();
+            }
            
 
         }
 
         private void buttonPlrChange_Click(object sender, RoutedEventArgs e)
         {
+            RefreshWindow();
             NavigationService.Navigate(Pages.PlayerChangePage);
         }
     }

@@ -63,8 +63,8 @@ namespace Wpf_Konst_Transf
         }
         private void RefreshWindow()
         {
-            textBoxMLog.Text = "";
-            textBoxMpassw.Text = "";
+            textBoxMLog.Text = "Login";
+            textBoxMpassw.Text = "Password";
         }
 
 
@@ -122,9 +122,15 @@ namespace Wpf_Konst_Transf
 
                 foreach (Log_Pas lp in log_pas)
                 {
-
+                    if (textBoxMLog.Text == "Login" && textBoxMpassw.Text == "Password")
+                    {
+                        MessageBox.Show("If you've registrated, please,write your Login and Password for Log In!");
+                        RefreshWindow();
+                        return;
+                    }
                     if (textBoxMLog.Text == lp.Login && textBoxMpassw.Text == lp.Password)
                     {
+                        RefreshWindow();
                         NavigationService.Navigate(Pages.SearchManagerPage);
                         l.Add(lp);
                         return;
@@ -133,15 +139,11 @@ namespace Wpf_Konst_Transf
 
                 }
             }
-            else if (l.Count == 0)
-            {
-                MessageBox.Show("If you've registrated, please,write your Login and Password for Log In!");
-                RefreshWindow();
-                return;
-            }
-
-
         }
+          
+
+
+        
 
         private void buttonRegMgr_Click(object sender, RoutedEventArgs e)
         {
@@ -152,23 +154,21 @@ namespace Wpf_Konst_Transf
                 MessageBox.Show("For registration please write your Login and Password!");
                 return;
             }
-            else
-            {
+            
                 if (textBoxMLog.Text != "" && textBoxMpassw.Text != "")
                 {
-                   
-                    foreach (Log_Pas lp in log_pas)
-                    {
-                        
-                        if (textBoxMLog.Text == lp.Login)
-                        {
-                           
-                            MessageBox.Show("This Login is busy!");
-                            return; }
-                        else {
-                            if (textBoxMLog.Text != lp.Login && textBoxMpassw.Text != lp.Password)
-                            {
 
+                foreach (Log_Pas lp in log_pas)
+                {
+
+                    if (textBoxMLog.Text == lp.Login)
+                    {
+
+                        MessageBox.Show("This Login is busy!");
+                        return;
+                    }
+
+                }
                                 Log_Pas manager = new Log_Pas(textBoxMLog.Text, textBoxMpassw.Text);
                                 log_pas.Add(manager);
                                 RefreshWindow();
@@ -179,12 +179,12 @@ namespace Wpf_Konst_Transf
                             }
 
                         }
-                }
+                     }
               
                     }
-                }
-            }
-        }
-    }
+                
+            
+        
+    
 
 

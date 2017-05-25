@@ -58,6 +58,10 @@ namespace Wpf_Konst_Transf
         List<Player> playr = new List<Player>();
         private void buttonSaveChange_Click(object sender, RoutedEventArgs e)
         {
+            if (dataGridPlayers.ItemsSource == null )
+            {
+                MessageBox.Show("Please, write your name for search!");
+            }
 
 
             SaveData();
@@ -70,6 +74,10 @@ namespace Wpf_Konst_Transf
 
         private void ButtonShow_Click(object sender, RoutedEventArgs e)
         {
+            if ( textBoxPlrChange.Text=="" )
+            {
+                MessageBox.Show("Please, write your name for search!");
+            }
             foreach (var p in _players)
             {
                 if (textBoxPlrChange.Text == p.Name)

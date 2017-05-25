@@ -36,5 +36,7 @@ namespace Wpf_Konst_Transf
         {
             NavigationService.Navigate(Pages.StartManagerPage);
         }
+
+      
     }
 }
