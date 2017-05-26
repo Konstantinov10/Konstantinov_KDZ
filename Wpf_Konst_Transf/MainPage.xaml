@@ -8,12 +8,12 @@
       d:DesignHeight="500" 
       Title="F.Search" Width="700" >
     <Grid Margin="10,0,0,0">
-      
-        <Button x:Name="StartScBut" Content="Manager/Scout" HorizontalAlignment="Left" Margin="52,0,0,56" VerticalAlignment="Bottom" Width="94" Click="StartScBut_Click" Height="30" />
+        <Image Source="F.Search.jpg" Margin="0,10,0,-10"/>
+        <Button x:Name="StartScBut" Content="Manager/Scout" HorizontalAlignment="Left" Margin="52,0,0,56" VerticalAlignment="Bottom" Width="93" Click="StartScBut_Click" Height="30" />
         <Label x:Name="Startphr1" Content="Hello! This is F.Search!"  HorizontalAlignment="Center" Margin="10,53,18,0" VerticalAlignment="Top" Width="489" FontSize="46" Height="87" FontWeight="Bold"  Foreground="#FF1B976F"/>
-        <Label x:Name="StartQLabel" Content="Who you are?" HorizontalAlignment="Center" Margin="266,154,256,302" VerticalAlignment="Center" Width="168" Height="44" FontSize="24" Foreground="#FF28679C" FontWeight="SemiBold"/>
+        <Label x:Name="StartQLabel" Content="Who you are?" HorizontalAlignment="Center" Margin="280,174,245,149" VerticalAlignment="Center" Width="165" Height="177" FontSize="24" Foreground="#FF28679C" FontWeight="SemiBold"/>
         <Button x:Name="StartPlBut" Content="Player" HorizontalAlignment="Right" Margin="0,0,60,56" VerticalAlignment="Bottom" Width="90" Click="StartPlBut_Click" Height="30"/>
-        
+
 
     </Grid>
 </Page>

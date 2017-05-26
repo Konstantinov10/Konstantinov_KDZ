@@ -67,7 +67,9 @@ namespace Wpf_Konst_Transf
         }
 
         private void buttonRegP_Click(object sender, RoutedEventArgs e)
+            
         {
+            LoadData();
             if (textBoxName.Text == "" || TextBoxSname.Text == "" || textBoxCountry.Text == "" || textBoxAge.Text == "" || comboBoxWleg.Text == "" || textBoxTeam.Text == "" || textBoxRating.Text == "")
             {
                 MessageBox.Show("Please, write all parameters for registration!");
@@ -116,6 +118,8 @@ namespace Wpf_Konst_Transf
                       comboBoxWleg.Text,
                        int.Parse(textBoxRating.Text),
                        textBoxTeam.Text);
+               
+              
                 _players.Add(plr);
                 SaveData();
                 MessageBox.Show("Registration passed successfully!");
