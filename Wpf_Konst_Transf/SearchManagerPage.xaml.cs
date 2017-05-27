@@ -22,9 +22,10 @@ namespace Wpf_Konst_Transf
     /// </summary>
     public partial class SearchManagerPage : Page
     {
-        List<Player> _players;
+         List<Player> _players;
         private void LoadData()
         {
+           
             BinaryFormatter formatter = new BinaryFormatter();
             using (FileStream fs = new FileStream("../../player.dat", FileMode.OpenOrCreate))
             {
@@ -40,6 +41,7 @@ namespace Wpf_Konst_Transf
         public SearchManagerPage()
         {
             InitializeComponent();
+            LoadData();
         }
 
          private void RefreshdataGridPlr()
@@ -48,7 +50,7 @@ namespace Wpf_Konst_Transf
             dataGridPlayers.ItemsSource = _players;
         }
 
-
+       
       
 
 
@@ -95,11 +97,12 @@ namespace Wpf_Konst_Transf
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
-
+           
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
                 LoadData();
+                List<Player> plrs = new List<Player>();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text))

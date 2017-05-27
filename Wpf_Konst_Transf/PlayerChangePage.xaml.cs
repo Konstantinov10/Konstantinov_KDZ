@@ -74,6 +74,7 @@ namespace Wpf_Konst_Transf
 
         private void ButtonShow_Click(object sender, RoutedEventArgs e)
         {
+            LoadData();
             if ( textBoxPlrChange.Text=="" )
             {
                 MessageBox.Show("Please, write your name for search!");
