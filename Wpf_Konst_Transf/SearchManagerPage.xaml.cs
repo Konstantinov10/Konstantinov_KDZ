@@ -22,7 +22,6 @@ namespace Wpf_Konst_Transf
     /// </summary>
     public partial class SearchManagerPage : Page
     {
-         List<Player> _players;
         private void LoadData()
         {
            
@@ -37,7 +36,8 @@ namespace Wpf_Konst_Transf
                 {
                     _players = new List<Player>();
                 }
-            }   }
+            }
+        }
         public SearchManagerPage()
         {
             InitializeComponent();
@@ -50,11 +50,12 @@ namespace Wpf_Konst_Transf
             dataGridPlayers.ItemsSource = _players;
         }
 
-       
-      
 
 
 
+
+
+        List<Player> _players;
         private void buttonAddAll_Click(object sender, RoutedEventArgs e)
         {
             LoadData();
@@ -97,237 +98,206 @@ namespace Wpf_Konst_Transf
 
         private void buttonSearch_Click(object sender, RoutedEventArgs e)
         {
-           
-            if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
-            {
-                LoadData();
-                List<Player> plrs = new List<Player>();
+            LoadData();
+            
+              
                
-                foreach (var plr in _players)
+                foreach (var p in _players)
                 {
-                    if (plr.Name == (TextBoxSname.Text))
+                    if (TextBoxSname.Text==p.Name)
                     {
-                        plrs.Add(plr);
-                        dataGridPlayers.ItemsSource = plrs;
-
+                        List<Player> players = new List<Player>();
+                        players.Add(p);
+                        dataGridPlayers.ItemsSource = players;
+                        return;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
+                    
                 }
-
+            if (dataGridPlayers.ItemsSource == null)
+            {
+                MessageBox.Show("No players with this parametrs!");
             }
+
 
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text)&& plr.Surname==(TextBoxSsurname.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+        
                 }
+               
 
             }
 
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+             
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Age == Convert.ToInt32( (TextBoxS1age.Text)))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Wleg == ((ComboBoxSwleg.Text)))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Team == ((TextBoxSteam.Text)))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Rating == Convert.ToInt32((textBoxRat.Text)))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text)&& plr.Country==(TextBoxScountry.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Wleg == (ComboBoxSwleg.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
@@ -335,21 +305,17 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
@@ -357,21 +323,17 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
@@ -379,629 +341,508 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Wleg == (ComboBoxSwleg.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text)&& plr.Age==Convert.ToInt32(TextBoxS1age.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Wleg == (ComboBoxSwleg.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Wleg== (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+
                 foreach (var plr in _players)
                 {
-                    if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text)&& plr.Wleg==(ComboBoxSwleg.Text))
+                    if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
                 }
 
             }
@@ -1009,357 +850,286 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32 (TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                    
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Age == Convert.ToInt32 (TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32 (TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text)&& plr.Team==(TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Rating == Convert.ToInt32 (textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                    
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Age == Convert.ToInt32 (TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
 
             if (TextBoxSname.Text != "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Name == (TextBoxSname.Text) && plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
 
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
                 }
 
             }
@@ -1372,20 +1142,15 @@ namespace Wpf_Konst_Transf
 
                 if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
 
                 }
 
@@ -1393,20 +1158,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text)&& plr.Country==(TextBoxScountry.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
 
                 }
 
@@ -1414,20 +1175,15 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                    
 
                 }
 
@@ -1435,20 +1191,15 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Wleg == (ComboBoxSwleg.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
 
                 }
 
@@ -1456,20 +1207,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
 
                 }
 
@@ -1477,20 +1224,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
 
                 }
 
@@ -1498,20 +1241,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text)  && plr.Country==(TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                    
 
                 }
 
@@ -1519,20 +1258,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Wleg == (ComboBoxSwleg.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
 
                 }
 
@@ -1540,20 +1275,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
 
                 }
 
@@ -1561,20 +1292,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
 
                 }
 
@@ -1582,20 +1309,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Wleg == (ComboBoxSwleg.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
 
                 }
 
@@ -1603,20 +1326,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
 
                 }
 
@@ -1624,20 +1343,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
 
                 }
 
@@ -1645,20 +1360,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
 
                 }
 
@@ -1667,20 +1378,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Wleg == (ComboBoxSwleg.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
 
                 }
 
@@ -1688,20 +1395,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Team == (TextBoxSteam.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
 
                 }
 
@@ -1709,20 +1412,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text)&& plr.Wleg == (ComboBoxSwleg.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
 
                 }
 
@@ -1730,20 +1429,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
 
                 }
 
@@ -1751,20 +1446,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text != "" && TextBoxScountry.Text != "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Surname == (TextBoxSsurname.Text) && plr.Country == (TextBoxScountry.Text) && plr.Age == Convert.ToInt32(TextBoxS1age.Text) && plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
 
                 }
 
@@ -1774,20 +1465,16 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text != "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Country == (TextBoxScountry.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
                 }
 
             }
@@ -1796,40 +1483,32 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text != "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+                
                 foreach (var plr in _players)
                 {
                     if (plr.Age == Convert.ToInt32(TextBoxS1age.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                 
                 }
 
             }
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text != "" && TextBoxSteam.Text == "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Wleg == (ComboBoxSwleg.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
@@ -1837,40 +1516,32 @@ namespace Wpf_Konst_Transf
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text != "" && textBoxRat.Text == "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+              
                 foreach (var plr in _players)
                 {
                     if (plr.Team == (TextBoxSteam.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                   
                 }
 
             }
 
             if (TextBoxSname.Text == "" && TextBoxSsurname.Text == "" && TextBoxScountry.Text == "" && TextBoxS1age.Text == "" && ComboBoxSwleg.Text == "" && TextBoxSteam.Text == "" && textBoxRat.Text != "")
             {
-                List<Player> plrs = new List<Player>();
-                LoadData();
+               
                 foreach (var plr in _players)
                 {
                     if (plr.Rating == Convert.ToInt32(textBoxRat.Text))
                     {
+                        List<Player> plrs = new List<Player>();
                         plrs.Add(plr);
                         dataGridPlayers.ItemsSource = plrs;
                     }
-                    else
-                    {
-                        MessageBox.Show("No players with this parameters!");
-                    }
-                    return;
+                  
                 }
 
             }
